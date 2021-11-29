@@ -25,13 +25,10 @@ class PetList extends Component {
       (this.props.id === pet.employeeId && petsArr.push(pet.name))
       return petsArr
     })
-    console.log(petsArr)
 
     return (
       <aside className="pets-list">
-        <p>{petsArr.length !== 0 
-          ? petsArr.join(', ') 
-          : 'No pets listed for this employee.'}</p>
+        <p>{petsArr.length !== 0 ? petsArr.join(', ') : 'No pets listed for this employee.'}</p>
       </aside>
     );
   }

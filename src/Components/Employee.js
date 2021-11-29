@@ -6,7 +6,7 @@ class Employee extends Component {
   constructor() {
     super();
     this.state = {
-      hidden: false
+      hidden: true
     }
   }
 
@@ -16,8 +16,8 @@ class Employee extends Component {
       <article className="employee">
         <h3> {prefix && prefix} {firstName} {lastName}{postfix && `, ${postfix}`}</h3>
         <h4>{title}</h4>
-        <button onClick={(event) => this.setState({ hidden: true })}>Show Pets</button>
-        {this.state.hidden && <PetList id={id} /> }
+        <button onClick={(event) => this.setState({ hidden: false })}>Show Pets</button>
+        {!this.state.hidden && <PetList id={id} /> }
       </article>
     );
   }
