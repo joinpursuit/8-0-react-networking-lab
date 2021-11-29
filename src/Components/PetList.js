@@ -26,13 +26,12 @@ class PetList extends Component {
 
   render() {
     const { pets } = this.state;
-    const { showPets } = this.props;
     const animals = pets.length
       ? pets.map((pet) => pet.name).join(', ')
       : 'No pets listed for this employee.';
     return (
       <aside className="pets-list">
-        <p>{showPets ? animals : null}</p>
+        <p>{animals}</p>
       </aside>
     );
   }

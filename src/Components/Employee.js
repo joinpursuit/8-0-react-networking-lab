@@ -27,7 +27,7 @@ class Employee extends Component {
         <button onClick={this.toggle}>
           {showPets ? 'Hide Pets' : 'Show Pets'}
         </button>
-        <PetList empId={id} showPets={showPets} />
+        {showPets && <PetList empId={id} />}
       </article>
     );
   }
