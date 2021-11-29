@@ -6,12 +6,12 @@ class Employee extends React.Component{
  constructor(){
    super();
    this.state ={
-     displayPets: true
+     displayPets: true, 
    }
  }
 
  display = () =>{
-   this.setState({ displayPets: this.state.displayPets,
+   this.setState({ displayPets: this.state.displayPets, 
  })
 }
 render(){
