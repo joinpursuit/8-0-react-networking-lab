@@ -30,9 +30,9 @@ class EmployeeList extends Component {
   }
 
   render(){
-    employeeCards = data.map((employee)=>{
+    const employeeCards = this.state.staffList.map((employee)=>{
       return (
-        <Employee 
+        <Employee key={employee.id}
           id={employee.id}
           firstName={employee.firstName} 
           lastName={employee.lastName}
@@ -47,7 +47,7 @@ class EmployeeList extends Component {
       <main>
         <h2>All Staff</h2>
         <section className="employee-list">
-          <Employee />
+          {employeeCards}
         </section>
       </main>
     )
