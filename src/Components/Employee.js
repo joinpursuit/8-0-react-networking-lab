@@ -13,10 +13,8 @@ class Employee extends Component {
 			<article className="employee">
 				<div key={this.props.each.id}>
 					<h3>
-						{this.props.each.prefix}
-						{this.props.each.firstName}
-						{this.props.each.lastName}
-						{this.props.each.postfix}
+						{this.props.each.prefix} {this.props.each.firstName}{" "}
+						{this.props.each.lastName}, {this.props.each.postfix}
 					</h3>
 					<h4>{this.props.each.title}</h4>
 				</div>
