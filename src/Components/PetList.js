@@ -1,9 +1,15 @@
-export const PetList = () => {
+import PetList from "./PetList";
+import "./Employee.css";
+
+export const Employee = () => {
   return (
-    <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
-    </aside>
+    <article className="employee">
+      <h3>Staff Member Name</h3>
+      <h4>Staff Member Title</h4>
+      <button>Show Pets</button>
+      <PetList />
+    </article>
   );
 };
 
-export default PetList;
+export default Employee;
