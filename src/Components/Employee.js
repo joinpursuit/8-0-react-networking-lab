@@ -12,9 +12,10 @@ class Employee extends Component {
 
   render() {
     const {id, firstName, lastName, prefix, postfix, title} = this.props.eachPerson
+
     return (
       <article className="employee">
-        <h3>{prefix} {firstName} {lastName} {postfix ? ", " + postfix : null}</h3>
+        <h3>{prefix} {firstName} {lastName}, {postfix}</h3>
         <h4>{title}</h4>
         <button 
           onClick={() => {
