@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, Fragment } from "react";
 
 class PetList extends Component {
   constructor() {
@@ -21,9 +21,10 @@ class PetList extends Component {
   }
 
   render() {
+    console.log(petData)
     const { petData } = this.state;
     const petList = petData.map((pet) => {
-      return <>{pet.name},</>;
+      return <Fragment key={pet.id}>{pet.name}, </Fragment>;
     });
     return (
       <aside className="pets-list">
