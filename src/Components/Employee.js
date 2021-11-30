@@ -7,39 +7,11 @@ class Employee extends Component {
     super();
 
     this.state = {
-      allPets: [],
+      isClicked: false,
     }
   }
-
-  handlePetClick=()=>{
-    console.log("employee id:", this.props.id);
-    const id = this.props.id;
-
-    fetch(`https://pursuit-veterinarian.herokuapp.com/api/pets?employeeId=${id}`)
-      .then((res)=>{
-        return res.json();
-      }).then((petData)=>{
-        this.setState({
-          allPets: petData,
-        })
-    })
-  }
-
+  
   render(){
-    const petCards = this.state.allPets.map((pet)=>{
-      return (
-        <PetList 
-          key={pet.id}
-          petId={pet.id}
-          petName={pet.name}
-          petKind={pet.kind}
-          petBreed={pet.breed}
-          petEmployeeId={pet.employeeId}
-        />
-      )
-    })
-
-
     let fullName = `${this.props.firstName} ${this.props.lastName}`;
     if (this.props.prefix) {
       fullName = this.props.prefix + " " + fullName;
@@ -50,12 +22,10 @@ class Employee extends Component {
 
     return(
       <article className="employee">
-        <h3>
-          {fullName}
-        </h3>
+        <h3>{fullName}</h3>
         <h4>{this.props.title}</h4>
-        <button onClick={this.handlePetClick}>Show Pets</button>
-        {petCards}
+        <button onClick={()=>this.setState({isClicked: !this.state.isClicked})}>Show Pets</button>
+        {this.state.isClicked ? <PetList id={this.props.id}/> : null}
       </article>
     )
   }

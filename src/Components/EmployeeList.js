@@ -12,10 +12,6 @@ class EmployeeList extends Component {
   }
 
   componentDidMount(){
-    this.handleEmployeeData();
-  }
-
-  handleEmployeeData=()=>{
     fetch("https://pursuit-veterinarian.herokuapp.com/api/employees")
       .then((res)=>{
         return res.json();
