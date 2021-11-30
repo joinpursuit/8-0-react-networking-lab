@@ -11,9 +11,11 @@ export class EmployeeList extends Component {
   }
 
   componentDidMount() {
-    fetch('https://vet-api-8-1.herokuapp.com/api/employees').then((response) => {
+    fetch('https://vet-api-8-1.herokuapp.com/api/employees')
+    .then((response) => {
       return response.json()
-    }).then((data) => {
+    })
+    .then((data) => {
       setTimeout(() => {
         console.log('Component Did Mount')
         this.setState({people: data})
