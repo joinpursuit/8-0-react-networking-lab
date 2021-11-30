@@ -44,7 +44,7 @@ class PetList extends React.Component {
       <aside className="pets-list">
         {displayPets.length > 0 ? <p>
           {displayPets}
-        </p> : <p>No pets available</p>}
+        </p> : <p>No pets listed</p>}
       </aside>
     );
   }
