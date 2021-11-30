@@ -19,21 +19,27 @@ class Employee extends Component {
       .then((res)=>{
         return res.json();
       }).then((petData)=>{
-
-        petData.map((thisDog)=>{
-          console.log("mapped:", thisDog.breed, thisDog.employeeId)
-          
-          let petArr = [];
-          petArr.push(thisDog.breed)
-
-          this.setState({
-            allPets: petArr,
-          })
+        this.setState({
+          allPets: petData,
         })
     })
   }
 
   render(){
+    const petCards = this.state.allPets.map((pet)=>{
+      return (
+        <PetList 
+          key={pet.id}
+          petId={pet.id}
+          petName={pet.name}
+          petKind={pet.kind}
+          petBreed={pet.breed}
+          petEmployeeId={pet.employeeId}
+        />
+      )
+    })
+
+
     let fullName = `${this.props.firstName} ${this.props.lastName}`;
     if (this.props.prefix) {
       fullName = this.props.prefix + " " + fullName;
@@ -49,7 +55,7 @@ class Employee extends Component {
         </h3>
         <h4>{this.props.title}</h4>
         <button onClick={this.handlePetClick}>Show Pets</button>
-        <PetList id={this.props.id} allPets={this.state.allPets} />
+        {petCards}
       </article>
     )
   }
