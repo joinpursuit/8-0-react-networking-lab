@@ -18,7 +18,7 @@ export default class Employee extends React.Component {
     const {prefix, firstName, lastName, title, postfix, id} = this.props.employee
     return (
         <article className="employee">
-          <h3>{prefix&&prefix} {firstName} {lastName}{postfix&&', '+postfix}</h3>
+          <h3>{[prefix, firstName, lastName].join(' ')}{postfix&&', '+postfix}</h3>
           <h4>{title}</h4>
           <button onClick={this.showOrHide}>
             {!this.state.viewPets ? 'Show Pets': 'Hide Pets'}
