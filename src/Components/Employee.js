@@ -1,15 +1,53 @@
+import { Component } from "react";
 import PetList from "./PetList";
 import "./Employee.css";
 
-export const Employee = () => {
-  return (
-    <article className="employee">
-      <h3>Staff Member Name</h3>
-      <h4>Staff Member Title</h4>
-      <button>Show Pets</button>
-      <PetList />
-    </article>
-  );
+class Employee extends Component  {
+  constructor(){
+    super()
+    this.state = {
+      pets: "",
+    }
+  }
+
+  handlePets = () => {
+    fetch(`https://vet-api-8-1.herokuapp.com/api/pets?employeeId=${this.props.employee.id}`)
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json)
+      this.setState({
+        pets: json,
+      })
+
+    })
+    .catch((err) => {
+      console.log('error fetching data')
+    })
+  }
+
+  // componentDidMount() {
+  //   this.handlePets();
+  // }
+
+  render() {
+
+    const { prefix, firstName, lastName, postfix, title } = this.props.employee;
+  
+    const hasPets = Array.isArray(this.state.pets) ? <PetList pets={this.state.pets} />
+: null;
+
+      return (
+        <article className="employee">
+          <h3>{prefix} {firstName} {lastName}, {postfix}</h3>
+          <h4>{title}</h4>
+          <button onClick={this.handlePets}>Show Pets</button>
+          {hasPets}
+        </article>
+      );
+  }
+
+
+  
 };
 
 export default Employee;
