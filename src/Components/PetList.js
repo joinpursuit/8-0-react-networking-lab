@@ -1,23 +1,22 @@
 import { Component } from "react";
 
-class PetList extends Component {
-  // constructor(){
-  //   super();
-
-  //   this.state = {
-      
-  //   }
-  // }
-
-
-  handlePetData=()=>{}
-
+class PetList extends Component { 
   render(){
-    return(
-      <aside className="pets-list">
-        <p>No pets listed for this employee.</p>
-      </aside>
-    )
+
+    if (this.props.allPets.length === 0){
+      return(
+        <aside className="pets-list">
+          <p>No pets listed for this employee.{this.props.allPets}</p>
+        </aside>
+      )
+    } else {
+      return(
+        <aside className="pets-list">
+          <p>{this.props.allPets}</p>
+        </aside>
+      )
+    }
+
   }
 }
 

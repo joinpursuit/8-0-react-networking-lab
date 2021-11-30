@@ -20,7 +20,7 @@ class EmployeeList extends Component {
       .then((res)=>{
         return res.json();
       }).then((data)=>{
-        // console.log(data);
+        console.log("data:", data);
         // console.log(data[0].firstName);
         
         this.setState({
