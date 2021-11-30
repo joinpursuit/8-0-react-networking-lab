@@ -27,10 +27,9 @@ class EmployeeList extends React.Component {
   }
 
   render() {
-    const results = this.state.apiArray.map((staff, i) => {
+    const results = this.state.apiArray.map((staff) => {
       return (
-        <Employee key={i} person={staff}
-        />
+        <Employee person={staff} />
       );
     });
 
