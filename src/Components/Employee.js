@@ -27,7 +27,7 @@ class Employee extends Component {
         <button onClick={() => this.setState({ isClick: !this.state.isClick })}>
           Show Pets
         </button>
-        <PetList /> 
+        {this.state.isClick ? <PetList id={id} /> : null}
       </article>
     );
   }

@@ -1,15 +1,40 @@
-import PetList from "./PetList";
-import "./Employee.css";
+import { Component } from "react";
 
-export const Employee = () => {
-  return (
-    <article className="employee">
-      <h3>Staff Member Name</h3>
-      <h4>Staff Member Title</h4>
-      <button>Show Pets</button>
-      <PetList />
-    </article>
-  );
-};
+class PetList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      petData: [],
+    };
+  }
+  componentDidMount() {
+    fetch(
+      `https://vet-api-8-1.herokuapp.com/api/pets?employeeId=${this.props.id}`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.setState({ petData: data });
+      })
+      .catch((err) => console.log(err.message));
+  }
 
-export default Employee;
+  render() {
+    const { petData } = this.state;
+    const petList = petData.map((pet) => {
+      return <>{pet.name},</>;
+    });
+    return (
+      <aside className="pets-list">
+        {petList.length > 0 ? (
+          <p>{petList}</p>
+        ) : (
+          <p>No pets listed for this employee.</p>
+        )}
+      </aside>
+    );
+  }
+}
+
+export default PetList;
