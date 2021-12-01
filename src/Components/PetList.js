@@ -18,6 +18,8 @@ class PetList extends Component {
     }).then((data)=>{
       this.setState({
         petArr: data,
+      }).catch((error)=>{
+        console.error("Error", error)
       })
     })
   }
