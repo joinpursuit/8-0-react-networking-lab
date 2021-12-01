@@ -6,7 +6,7 @@ class PetList extends Component {
     super()
     this.state={
       petArr:[],
-      displayPet: false
+      displayPet: false,
     }
   }
 
@@ -27,27 +27,34 @@ class PetList extends Component {
       displayPet: true
     })
      
-    }
+  }
 
 
 
   render(){
-    console.log(this.props.id)
 
-    let petDisplay = this.state.petArr.map((pet)=>{
-      if(pet.employeeId === this.props.id){
-        return (
-        <p>{pet.name}</p>
-        )
-      }
-    });
+    let petDisplay = this.state.petArr.filter((pet)=>pet.employeeId === this.props.id).map((pet)=>{
+      return(
+        <p>{pet.name},</p>
+      )
+    })
+       
+       
+     
+      
+      
+ 
+
+  console.log(petDisplay)
+
+    // let petDisplay = this.state.petArr.filter((pet)=> pet.employeeId === this.props.id)
    
     
     return (
       <>
-        <button onClick={this.handlePetDisplay}>Show Pets</button>
+      <button onClick={this.handlePetDisplay}>Show Pets</button>
       <aside className="pets-list" style={{display: this.state.displayPet ? "block" : "none"}}>
-        <p>{petDisplay}</p>
+        {petDisplay.length ? petDisplay: "No pets listed for this employee" }
       </aside> 
       </>
     );
