@@ -3,34 +3,41 @@ import "./Employee.css";
 import React from "react";
 
 class Employee extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     
     this.state = {
       clicked: false,
     };
   }
+
+  onClick = (event) => {
+    event.preventDefault()
+    this.setState({
+      clicked: !this.state.clicked,
+    });
+  };
   
   render() {
     let comma = ""
-    if(this.props.person.postfix) {
+    if(this.props.mango.postfix) {
       comma = ",";
     }
     
     return (
       <article className="employee">
         <h3>
-          {this.props.person.prefix} {this.props.person.firstName} {this.props.person.lastName}
-          {comma} {this.props.person.postfix}
+          {this.props.mango.prefix} {this.props.mango.firstName} {this.props.mango.lastName}
+          {comma} {this.props.mango.postfix}
         </h3>
-        <h4>{this.props.person.title}</h4>
-        <button onClick={() => this.setState({ clicked: !this.state.clicked })}>Show Pets</button>
-        {this.state.clicked ? <PetList id={this.props.person.id} /> : null}
+        <h4>{this.props.mango.title}</h4>
+        <button onClick={this.onClick}>Show Pets</button>
+        {this.state.clicked ? <PetList id={this.props.mango.id} /> : null}
       </article>
     );
-  }
-  
+  } 
 }
+
 
 export default Employee;
 /* 

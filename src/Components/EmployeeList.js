@@ -3,8 +3,8 @@ import Employee from "./Employee";
 import "./EmployeeList.css";
 
 class EmployeeList extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       apiArray: [],
@@ -27,9 +27,9 @@ class EmployeeList extends React.Component {
   }
 
   render() {
-    const results = this.state.apiArray.map((staff) => {
+    const results = this.state.apiArray.map((staff, i) => {
       return (
-        <Employee person={staff} />
+        <Employee key={i} mango={staff} />
       );
     });
 

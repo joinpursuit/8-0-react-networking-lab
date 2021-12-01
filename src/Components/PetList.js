@@ -1,21 +1,13 @@
 import React from "react";
 
 class PetList extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       petApi: [],
-      // clicked: false,
     };
   }
-
-  // onClick = (event) => {
-    // event.preventDefault()
-  //   this.setState({
-  //     clicked: !this.state.clicked,
-  //   });
-  // };
 
   componentDidMount() {
     fetch(
