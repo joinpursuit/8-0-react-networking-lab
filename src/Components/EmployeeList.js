@@ -7,13 +7,11 @@ export class EmployeeList extends React.Component {
     super();
     this.state = {
       employeeData: [],
-      petsData: [],
     };
   }
 
   componentDidMount() {
     this.handleEmployees();
-    this.handlePets();
   }
 
   handleEmployees() {
@@ -23,16 +21,6 @@ export class EmployeeList extends React.Component {
       })
       .then((data) => {
         this.setState({ employeeData: data });
-      });
-  }
-
-  handlePets() {
-    fetch("https://pursuit-veterinarian.herokuapp.com/api/pets")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        this.setState({ petsData: data });
       });
   }
 
@@ -50,9 +38,7 @@ export class EmployeeList extends React.Component {
             (item.postfix ? ", " + item.postfix : " ")
           }
           title={item.title}
-          pet={this.state.petsData.filter((petItem) => {
-            return petItem.employeeId === item.id;
-          })}
+          id={item.id}
         />
       );
     });

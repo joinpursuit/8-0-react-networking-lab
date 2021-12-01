@@ -8,22 +8,21 @@ export class Employee extends Component {
 
     this.state = {
       showBool: false,
+      names: "",
     };
   }
+
+  handleClick = () => {
+    this.setState({ showBool: !this.state.showBool });
+  };
 
   render() {
     return (
       <article className="employee">
         <h3>{this.props.name}</h3>
         <h4>{this.props.title}</h4>
-        <button
-          onClick={() => {
-            this.setState({ showBool: !this.state.showBool });
-          }}
-        >
-          Show Pets
-        </button>
-        <PetList name={this.props.pet} show={this.state.showBool} />
+        <button onClick={this.handleClick}>Show Pets</button>
+        <PetList show={this.state.showBool} id={this.props.id} />
       </article>
     );
   }
