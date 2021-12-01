@@ -17,6 +17,9 @@ export class PetList extends Component {
       })
       .then((data) => {
         this.setState({ petData: data });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
       });
   }
 
