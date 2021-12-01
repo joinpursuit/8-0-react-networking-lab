@@ -5,21 +5,25 @@ import "./Employee.css";
 class Employee extends Component {
 	constructor() {
 		super();
-		this.State = {};
+		this.state = { isActive: false };
 	}
 
 	render() {
+		const { firstName, lastName, prefix, postfix, title, id } = this.props.each;
 		return (
 			<article className="employee">
-				<div key={this.props.each.id}>
+				<div>
 					<h3>
-						{this.props.each.prefix} {this.props.each.firstName}{" "}
-						{this.props.each.lastName}, {this.props.each.postfix}
+						{prefix} {firstName} {lastName}, {postfix}
 					</h3>
-					<h4>{this.props.each.title}</h4>
+					<h4>{title}</h4>
 				</div>
-				<button>Show Pets</button>
-				<PetList />
+				<button
+					onClick={() => this.setState({ isActive: !this.state.isActive })}
+				>
+					Show Pets
+				</button>
+				{this.state.isActive ? <PetList theId={id} /> : null}
 			</article>
 		);
 	}

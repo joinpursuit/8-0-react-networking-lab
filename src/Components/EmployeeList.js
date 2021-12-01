@@ -12,8 +12,8 @@ class EmployeeList extends React.Component {
 
 	componentDidMount() {
 		fetch("https://pursuit-veterinarian.herokuapp.com/api/employees")
-			.then((response) => {
-				return response.json();
+			.then((res) => {
+				return res.json();
 			})
 			.then((data) => {
 				this.setState({ dataEmployee: data });
@@ -21,8 +21,8 @@ class EmployeeList extends React.Component {
 	}
 
 	render() {
-		const mappingEmployee = this.state.dataEmployee.map((each) => {
-			return <Employee each={each} />;
+		let mappingEmployee = this.state.dataEmployee.map((each) => {
+			return <Employee key={each.id} each={each} />;
 		});
 
 		return (
