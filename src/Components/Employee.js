@@ -8,20 +8,34 @@ class Employee extends React.Component {
   constructor() {
     super();
     this.state = {
-      class: "hidden"
+      display: "hidden"
     }
   }
 
-  handleClick = () => {
-    even.preventDefault();
+  handleClick = (event) => {
+    event.preventDefault();
     this.setState({
-      class: ""
+      display: ""
     });
   }
 
   render() {
-    const { id, firstNName, lastName, prefix, postfix, title } = 
-    this.props.person
+
+    const { id, firstName, lastName, prefix, postfix, title } =
+      this.props.person;
+
+    return (
+      <article className="employee">
+        <h3>
+          ${prefix}
+          {firstName} {lastName}
+          {postfix}
+        </h3>
+        <h4>{title}</h4>
+        <button onClick={this.handleClick}>Show Pets</button>
+        <PetList id={id} />
+      </article>
+    )
   }
 
 
