@@ -1,15 +1,30 @@
 import PetList from "./PetList";
 import "./Employee.css";
+import React from "react";
 
-export const Employee = () => {
-  return (
-    <article className="employee">
-      <h3>Staff Member Name</h3>
-      <h4>Staff Member Title</h4>
-      <button>Show Pets</button>
-      <PetList />
-    </article>
-  );
-};
+
+class Employee extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      class: "hidden"
+    }
+  }
+
+  handleClick = () => {
+    even.preventDefault();
+    this.setState({
+      class: ""
+    });
+  }
+
+  render() {
+    const { id, firstNName, lastName, prefix, postfix, title } = 
+    this.props.person
+  }
+
+
+}
 
 export default Employee;
