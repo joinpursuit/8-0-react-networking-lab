@@ -6,18 +6,37 @@ import { Component } from "react";
 class Employee extends Component {
   constructor(){
     super();
+    this.state = {
+      pets: []
+    }
+  }
 
+  componentDidMount() {
+    this.handlePetFetch();
+  }
+
+  handlePetFetch = () => {
+    fetch("https://pursuit-veterinarian.herokuapp.com/api/pets")
+      .then((res)=> {
+        return res.json();
+      }).then((petsJsonResponse)=>{
+          console.log(petsJsonResponse);
+          this.setState({
+            pets: petsJsonResponse
+          });
+        }).catch((err)=> console.log(err))
   }
 
   render () {
+
     const {id, firstName, lastName, prefix, postfix, title} = this.props.employeeData
-    console.log(title, firstName, lastName, prefix,)
+  
     return (
       <article className="employee">
       <h3>{prefix} {firstName} {lastName} {postfix}</h3>
       <h4>{title}</h4>
       <button>Show Pets</button>
-      <PetList />
+      <PetList pets={this.state.pets} id={id}/>
     </article>
     )
   }

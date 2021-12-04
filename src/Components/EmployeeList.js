@@ -1,7 +1,7 @@
 import React from "react";
 import Employee from "./Employee";
 import "./EmployeeList.css";
-=
+
 class EmployeeList extends React.Component {
   constructor (){
     super();
@@ -11,13 +11,13 @@ class EmployeeList extends React.Component {
   }
 
   componentDidMount () {
-    this.handleEmployeeCatch()
+    this.handleEmployeeFetch();
   }
 
-  handleEmployeeCatch = () => {
+  handleEmployeeFetch = () => {
     fetch("https://pursuit-veterinarian.herokuapp.com/api/employees")
       .then((res)=> {
-        return res.json()
+        return res.json();
       }).then((data)=> {
         console.log(data)
         this.setState({
