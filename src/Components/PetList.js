@@ -1,15 +1,35 @@
 import { Component } from "react";
 
 class PetList extends Component {
-  constructor(){
+  constructor() {
     super();
+    this.state = {
+      petList: [],
+    };
   }
+
+  componentDidMount() {
+    fetch(`https://pursuit-veterinarian.herokuapp.com/api/pets`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((petData) => {
+        console.log(petData);
+        this.setState({
+          petList: petData,
+        });
+      });
+  }
+
   render() {
-    return(
-      <div>
-        
-      </div>
-    )
+    let displayPets = this.state.petList.map((pet) => {
+      return <>{pet.name}</>;
+    });
+    return (
+      <aside className="pets-list">
+        {/* <p>{displayPets}</p> */}
+      </aside>
+    );
   }
 }
 

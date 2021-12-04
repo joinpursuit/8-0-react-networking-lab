@@ -2,12 +2,12 @@ import { Component } from "react";
 import "./NavBar.css";
 
 class NavBar extends Component {
-  constructor(){
-    super();
-  }
+  // constructor(){
+  //   super();
+  // }
   render() {
     return(
-      <div></div>
+      <nav><h1>Northwest Animal Hospital</h1></nav>
     )
   }
 }

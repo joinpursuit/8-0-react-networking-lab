@@ -6,10 +6,40 @@ import "./EmployeeList.css";
 class EmployeeList extends Component {
   constructor() {
     super();
+    this.state = {
+      employeeList: []
+    }
   }
+
+// handle employeeData
+componentDidMount() {
+  fetch(`https://pursuit-veterinarian.herokuapp.com/api/employees`)
+  .then((res) => {
+    return res.json()
+  })
+  .then((employeeData) => {
+    console.log(employeeData)
+    this.setState({
+      employeeList: employeeData
+    })
+  })
+ }
+
   render() {
+    // map through employees to create each card
+    // render each card
+
+    let displayStaff = this.state.employeeList.map((employee) => {
+      return <Employee key={employee.id} employee={employee} />
+    })
+
     return (
-      <div></div>
+      <main>
+       <h2>All Staff</h2>
+       <section className="employee-list">
+         {displayStaff}
+       </section>
+     </main>
     )
   }
 }
