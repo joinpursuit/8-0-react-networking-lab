@@ -7,7 +7,7 @@ class Employee extends Component {
   constructor(){
     super();
     this.state = {
-      pets: []
+      pets: [],
     }
   }
 
@@ -35,8 +35,8 @@ class Employee extends Component {
       <article className="employee">
       <h3>{prefix} {firstName} {lastName} {postfix}</h3>
       <h4>{title}</h4>
-      <button>Show Pets</button>
-      <PetList pets={this.state.pets} id={id}/>
+      
+      <PetList pets={this.state.pets} id={id} />
     </article>
     )
   }
