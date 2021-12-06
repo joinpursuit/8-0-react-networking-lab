@@ -1,6 +1,6 @@
-import React from "react";
-import NavBar from "./Components/NavBar";
-import EmployeeList from "./Components/EmployeeList";
+import React from "react"
+import NavBar from "./Components/NavBar"
+import EmployeeList from "./Components/EmployeeList"
 
 const App = () => {
   return (
@@ -11,4 +11,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App
