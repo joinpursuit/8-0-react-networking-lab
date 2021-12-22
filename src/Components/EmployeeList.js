@@ -15,7 +15,7 @@ class EmployeeList extends React.Component {
   }
 
   handleEmployeeFetch = () => {
-    fetch("https://pursuit-veterinarian.herokuapp.com/api/employees")
+    fetch("https://vet-api-8-1.herokuapp.com/api/pets")
       .then((res)=> {
         return res.json();
       }).then((data)=> {

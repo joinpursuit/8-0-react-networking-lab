@@ -8,6 +8,7 @@ class Employee extends Component {
     super();
     this.state = {
       pets: [],
+      displayPets: false,
     }
   }
 
@@ -15,8 +16,14 @@ class Employee extends Component {
     this.handlePetFetch();
   }
 
+  handlePetDisplay = () => {
+    this.setState({
+      displayPets:true
+    })
+  }
+
   handlePetFetch = () => {
-    fetch("https://pursuit-veterinarian.herokuapp.com/api/pets")
+    fetch("https://vet-api-8-1.herokuapp.com/api/pets")
       .then((res)=> {
         return res.json();
       }).then((petsJsonResponse)=>{
@@ -35,8 +42,9 @@ class Employee extends Component {
       <article className="employee">
       <h3>{prefix} {firstName} {lastName} {postfix}</h3>
       <h4>{title}</h4>
-      
-      <PetList pets={this.state.pets} id={id} />
+      <button onClick={this.handlePetDisplay}>Show Pets</button>
+
+      <PetList pets={this.state.pets} id={id} displayPets={this.state.displayPets}/>
     </article>
     )
   }
