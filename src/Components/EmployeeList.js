@@ -25,11 +25,12 @@ render(){
   let empList = this.state.employees.map((employee)=>{
       return(
         <Employee 
-        key={employee.id}
+        empId={employee.id}
         prefix={employee.prefix}
         firstName={employee.firstName}
         lastName={employee.lastName}
-        title={employee.title}/>
+        title={employee.title}
+        postfix={employee.postfix}/>
       )
 
   })

@@ -1,8 +1,12 @@
 export const PetList = (props) => {
-  const {empId} = props
+  const {filteredPetData, notFound} = props
+  
+  let petlist = filteredPetData.map((pet)=>{
+    return `${pet.name}, `
+  })
   return (
     <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
+      {filteredPetData.length ?  petlist : <p>{notFound}</p>}
     </aside>
   );
 };
