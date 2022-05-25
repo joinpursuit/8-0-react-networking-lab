@@ -1,16 +1,34 @@
+import { render } from "@testing-library/react";
 import React from "react";
+import { Component } from "react/cjs/react.production.min";
 import Employee from "./Employee";
 import "./EmployeeList.css";
 
-export const EmployeeList = () => {
-  return (
-    <main>
-      <h2>All Staff</h2>
-      <section className="employee-list">
-        <Employee />
-      </section>
-    </main>
-  );
-};
+export default class EmployeeList extends Component {
+  constructor() {
+    super();
+  }
 
-export default EmployeeList;
+  listEmployees = () => {
+    fetch("https://vet-lab-8-4.herokuapp.com/api/employees")
+      .then((employees) => employees.json())
+      .then((employees) => console.log(employees))
+      .then((employees) => this.testEmployees());
+  };
+
+  testEmployees = () => this.listEmployees();
+
+  componentDidMount() {
+    this.listEmployees();
+  }
+  render() {
+    return (
+      <main>
+        <h2>All Staff</h2>
+        <section className="employee-list">
+          <Employee employee={this.listEmployees()}/>
+        </section>
+      </main>
+    );
+  }
+}
