@@ -5,20 +5,28 @@ import "./Employee.css";
 class Employee extends React.Component {
   constructor() {
     super();
-    this.state = { animals: [] };
+    this.state = { vetPets: [] };
   }
 
-  fetchDogs = () => {
+  fetchDogs = (person) => {
     fetch("https://serene-tundra-77911.herokuapp.com/api/pets")
       .then((res) => res.json())
-      .then((dogs) => {
+      .then((animals) => {
+        const matchedAnimals = animals.filter(
+          (a) => a.employeeId === person.id
+        );
         this.setState({
-          animals: dogs,
+          vetPets: matchedAnimals,
         });
       });
   };
+
+  handleClick = (person) => {
+    this.fetchDogs(person);
+  };
+
   nameFormatter = (person) => {
-    const { firstName, id, lastName, postfix, prefix, title } = person;
+    const { firstName, lastName, postfix, prefix } = person;
     if (person.prefix) {
       return `${prefix} ${firstName} ${lastName}`;
     } else if (postfix) {
@@ -29,13 +37,14 @@ class Employee extends React.Component {
   };
   render() {
     const { employee } = this.props;
+    console.log(this.state.vetPets);
 
     return (
       <article className="employee">
         <h3>{this.nameFormatter(employee)}</h3>
         <h4>{employee.title}</h4>
-        <button>Show Pets</button>
-        <PetList />
+        <button onClick={() => this.handleClick(employee)}>Show Pets</button>
+        <PetList vetPets={this.state.vetPets} />
       </article>
     );
   }
