@@ -7,7 +7,7 @@ class Employee extends React.Component {
   constructor() {
     super();
     this.state = {
-      pets: [],
+      pets: null,
     };
   }
 
@@ -16,7 +16,9 @@ class Employee extends React.Component {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ pets: data });
+        this.state.pets === null
+          ? this.setState({ pets: data })
+          : this.setState({ pets: null });
       })
       .catch((error) => {
         console.log(error);
