@@ -1,3 +1,8 @@
+
+
+
+// create a function to get pets with fetch and pets endpoint - return an array of 20 objects
+
 const getPets = () => {
   fetch(`https://vet-lab-8-4.herokuapp.com/api/pets`)
     .then(data => data.json())
