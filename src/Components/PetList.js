@@ -55,11 +55,11 @@ class PetList extends Component {
   renderPetList = () => {
     const { vetPetList } = this.state;
 
-    const vetsPets = vetPetList.map((pets) => {
+    const VetsPets = vetPetList.map((pets) => {
       return <p key={pets.id}>{pets.name}</p>;
     });
 
-    return vetsPets;
+    return VetsPets;
   };
 
   render() {
