@@ -5,7 +5,7 @@ import "./Employee.css";
 class Employee extends React.Component {
   constructor() {
     super();
-    this.state = { vetPets: [] };
+    this.state = { vetPets: null };
   }
 
   fetchDogs = (person) => {
@@ -44,7 +44,7 @@ class Employee extends React.Component {
         <h3>{this.nameFormatter(employee)}</h3>
         <h4>{employee.title}</h4>
         <button onClick={() => this.handleClick(employee)}>Show Pets</button>
-        <PetList vetPets={this.state.vetPets} />
+        {this.state.vetPets && <PetList vetPets={this.state.vetPets} />}
       </article>
     );
   }
