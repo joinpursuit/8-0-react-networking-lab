@@ -9,7 +9,7 @@ export default class PetList extends React.Component {
   }
   componentDidMount() {
     const { eid } = this.props;
-    fetch(`https://vet-api-8-1.herokuapp.com/api/pets?employeeId=${eid}`)
+    fetch(`https://serene-tundra-77911.herokuapp.com/api/pets?employeeId=${eid}`)
       .then((response) => response.json())
       .then((obj) => {
         this.setState({ pets: [...obj] });

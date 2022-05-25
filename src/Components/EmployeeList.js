@@ -10,7 +10,7 @@ export default class EmployeeList extends React.Component {
     };
   }
   componentDidMount() {
-    fetch("https://vet-api-8-1.herokuapp.com/api/employees")
+    fetch("https://serene-tundra-77911.herokuapp.com/api/employees")
       .then((response) => response.json())
       .then((obj) => {
         this.setState({ listemployees: [...obj] });
