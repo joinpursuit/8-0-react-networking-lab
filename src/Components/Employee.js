@@ -22,7 +22,11 @@ class Employee extends React.Component {
   };
 
   handleClick = (person) => {
-    this.fetchDogs(person);
+    this.state.vetPets
+      ? this.setState({
+          vetPets: null,
+        })
+      : this.fetchDogs(person);
   };
 
   nameFormatter = (person) => {
@@ -37,8 +41,6 @@ class Employee extends React.Component {
   };
   render() {
     const { employee } = this.props;
-    console.log(this.state.vetPets);
-
     return (
       <article className="employee">
         <h3>{this.nameFormatter(employee)}</h3>
