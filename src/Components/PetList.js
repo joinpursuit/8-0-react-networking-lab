@@ -1,7 +1,14 @@
-export const PetList = () => {
+export const PetList = (props) => {
+  const { pets } = props;
   return (
     <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
+      {pets.length > 0 ? (
+        pets.map((pet) => {
+          return <p key={pet.id}>{pet.name}</p>;
+        })
+      ) : (
+        <p>No pets listed</p>
+      )}
     </aside>
   );
 };
