@@ -26,23 +26,26 @@ export default class EmployeeList extends Component {
   componentDidMount() {
     this.listEmployees();
   }
+
   render() {
     return (
       <main>
         <h2>All Staff</h2>
         <section className="employee-list">
-          {this.state.employeeList.map((employee) => {
-            return (
-              <Employee
-                key={employee.id}
-                firstName={employee.firstName}
-                lastName={employee.lastName}
-                title={employee.title}
-                prefix={employee.prefix}
-                postfix={employee.postfix}
-              />
-            );
-          })}
+          <>
+            {this.state.employeeList.map((employee) => {
+              return (
+                <Employee
+                  key={employee.id}
+                  firstName={employee.firstName}
+                  lastName={employee.lastName}
+                  title={employee.title}
+                  prefix={employee.prefix}
+                  postfix={employee.postfix}
+                />
+              );
+            })}
+          </>
         </section>
       </main>
     );
