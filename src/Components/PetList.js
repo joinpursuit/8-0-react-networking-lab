@@ -1,9 +1,21 @@
-export const PetList = () => {
-  return (
-    <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
-    </aside>
-  );
+import React, { Component } from "react";
+
+export default class PetList extends Component {
+  constructor(props){
+    super(props)
+  }
+
+  render (){
+    return (
+      <div>
+        <aside className="pets-list">
+          <ul>
+          </ul>
+          {this.props.pets.length > 0 ? this.props.pets.map(pet => <li>{pet.name}</li>) : <p>No pets listed for this employee.</p>}
+        </aside>
+      </div>
+    );
+  }
 };
 
-export default PetList;
+
