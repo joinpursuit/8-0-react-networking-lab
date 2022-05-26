@@ -1,20 +1,19 @@
-import react from "react";
 import PetList from "./PetList";
 import "./Employee.css";
 
-// add prop from parent Componenet EmployeeList 
-export const Employee = ({json}) => {
-  console.log(json)
-   {
-    return (
-      <article className="employee">
-        <h3></h3>
-        <h4>Staff Member Title</h4>
-        <button>Show Pets</button>
-        <PetList />
-      </article>
-    );
-  }
+export const Employee = ({id, firstName, lastName, prefix, postfix, title, pets}) => { 
+  return (
+    <article className="employee">
+      <h3>{firstName} {lastName}</h3>
+      <h4>{title}</h4>
+      <button>Show Pets</button>
+  {pets.map(({id, name, kind, breed, employeeID}) => {
+      return (
+        <PetList id={id} name={name} kind={kind} breed={breed} employeeID={employeeID} />
+      )
+    })}
+    </article>
+  );
 };
 
 export default Employee;
