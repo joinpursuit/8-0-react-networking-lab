@@ -23,7 +23,6 @@ export class PetList extends Component {
 
   PetsURL = () => {
     const { empId } = this.props;
-    console.log('updating the pets url');
     fetch(`http://serene-tundra-77911.herokuapp.com/api/pets?employeeId=${empId}`)
       .then((data) => data.json())
       .then((json) => {
