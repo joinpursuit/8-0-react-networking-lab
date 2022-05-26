@@ -17,10 +17,13 @@ export default class EmployeeList extends Component {
       .then((employees) => employees.json())
       //.then((employees) => console.log(employees))
       .then((employees) => {
-        for (let employee of employees) {
-          this.state.employeeList.push(employee);
-        }
-        console.log(this.state.employeeList);
+        this.setState ({
+          employeeList : employees
+        })
+        // for (let employee of employees) {
+        //   this.state.employeeList.push(employee);
+        // }
+        //console.log(this.state.employeeList);
       })
       .catch ((err) => alert("ERROR"));
   };
@@ -37,12 +40,12 @@ export default class EmployeeList extends Component {
           {this.state.employeeList.map((employee) => {
             return (
               <Employee
-                // key={employee.id}
-                // firstName={employee.firstName}
-                // lastName={employee.lastName}
-                // title={employee.title}
-                // prefix={employee.prefix}
-                // postfix={employee.postfix}
+                key={employee.id}
+                firstName={employee.firstName}
+                lastName={employee.lastName}
+                title={employee.title}
+                prefix={employee.prefix}
+                postfix={employee.postfix}
               />
             );
           })}

@@ -13,15 +13,19 @@ export default class Employee extends Component {
       postfix: this.props.postfix,
       id: this.props.id,
     };
-    console.log(props)
+    console.log(props);
   }
 
-  
   render() {
     return (
       <article className="employee">
-        <h3>{this.state.prefix} {" "} {this.state.firstName} {" "} {this.state.lastName} {" "} {this.state.postfix}</h3>
+        <h3>
+          {this.state.prefix} {this.state.firstName} {this.state.lastName}{" "}
+          {this.state.postfix}
+        </h3>
         <h4>{this.state.title}</h4>
+        {/* <h3>Person's name and title go here</h3>
+        <h4>Actually just their title will go here</h4> */}
         <button>Show Pets</button>
         <PetList />
       </article>
