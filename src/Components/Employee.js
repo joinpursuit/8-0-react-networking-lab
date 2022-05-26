@@ -13,7 +13,10 @@ export default class Employee extends Component {
       postfix: this.props.postfix,
       id: this.props.id,
     };
+    console.log(props)
   }
+
+  
   render() {
     return (
       <article className="employee">

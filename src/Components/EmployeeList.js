@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+//import { render } from "@testing-library/react";
 import React from "react";
 import { Component } from "react/cjs/react.production.min";
 import Employee from "./Employee";
@@ -6,7 +6,7 @@ import "./EmployeeList.css";
 
 export default class EmployeeList extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       employeeList: [],
     };
@@ -20,7 +20,9 @@ export default class EmployeeList extends Component {
         for (let employee of employees) {
           this.state.employeeList.push(employee);
         }
-      });
+        console.log(this.state.employeeList);
+      })
+      .catch ((err) => alert("ERROR"));
   };
 
   componentDidMount() {
@@ -32,20 +34,18 @@ export default class EmployeeList extends Component {
       <main>
         <h2>All Staff</h2>
         <section className="employee-list">
-          <>
-            {this.state.employeeList.map((employee) => {
-              return (
-                <Employee
-                  key={employee.id}
-                  firstName={employee.firstName}
-                  lastName={employee.lastName}
-                  title={employee.title}
-                  prefix={employee.prefix}
-                  postfix={employee.postfix}
-                />
-              );
-            })}
-          </>
+          {this.state.employeeList.map((employee) => {
+            return (
+              <Employee
+                // key={employee.id}
+                // firstName={employee.firstName}
+                // lastName={employee.lastName}
+                // title={employee.title}
+                // prefix={employee.prefix}
+                // postfix={employee.postfix}
+              />
+            );
+          })}
         </section>
       </main>
     );
