@@ -11,10 +11,24 @@ export default class Employee extends Component {
       title: this.props.title,
       prefix: this.props.prefix,
       postfix: this.props.postfix,
-      id: this.props.id,
+      id: this.props.key,
+      petList: [],
     };
-    console.log(props);
+    //console.log(props);
+    //console.log(this.state.petList)
   }
+
+  listPet = (id) => {
+    fetch(`https://vet-lab-8-4.herokuapp.com/api/pets?employeeId=${id}`)
+      .then((pets) => pets.json())
+      .then((pets) => {
+        this.setState({
+          petList: pets,
+        });
+        //console.log(this.state.petList)
+      })
+      .catch((err) => console.log(err));
+  };
 
   render() {
     return (
@@ -24,11 +38,16 @@ export default class Employee extends Component {
           {this.state.postfix}
         </h3>
         <h4>{this.state.title}</h4>
+        <h4>{this.state.id}</h4>
         {/* <h3>Person's name and title go here</h3>
         <h4>Actually just their title will go here</h4> */}
         <button>Show Pets</button>
-        <PetList />
+        <PetList pets={this.state.petList} />
       </article>
     );
   }
 }
+
+// For line 30:
+
+// Fetch and map through pets, assigning pets based on the passed through id prop

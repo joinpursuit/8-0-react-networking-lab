@@ -32,6 +32,10 @@ export default class EmployeeList extends Component {
     this.listEmployees();
   }
 
+  componentDidUpdate(prevState) {
+    console.log(prevState)
+  }
+
   render() {
     return (
       <main>
