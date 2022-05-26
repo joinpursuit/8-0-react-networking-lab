@@ -10,6 +10,7 @@ class App extends React.Component {
 
     }
   }
+  //fetch new url and the update compnent state
   fetchdata = () => {
     fetch('https://serene-tundra-77911.herokuapp.com/api/employees')
     .then((res) => res.json())
