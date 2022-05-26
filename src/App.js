@@ -6,11 +6,11 @@ class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      EMPLOYEES_URL: [],
+      EMPLOYEES_URL: "",
 
     }
   }
-  //fetch new url and the update compnent state
+  //fetch new url and the update component state
   fetchdata = () => {
     fetch('https://serene-tundra-77911.herokuapp.com/api/employees')
     .then((res) => res.json())
