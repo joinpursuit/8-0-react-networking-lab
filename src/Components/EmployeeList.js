@@ -8,14 +8,14 @@ export default class EmployeeList extends Component {
   constructor() {
     super();
     this.state = {
-      employeeList: []
-    }
+      employeeList: [],
+    };
   }
 
   listEmployees = () => {
     fetch("https://vet-lab-8-4.herokuapp.com/api/employees")
       .then((employees) => employees.json())
-      .then((employees) => console.log(employees))
+      //.then((employees) => console.log(employees))
       .then((employees) => {
         for (let employee of employees) {
           this.state.employeeList.push(employee);
@@ -31,7 +31,18 @@ export default class EmployeeList extends Component {
       <main>
         <h2>All Staff</h2>
         <section className="employee-list">
-          <Employee />
+          {this.state.employeeList.map((employee) => {
+            return (
+              <Employee
+                key={employee.id}
+                firstName={employee.firstName}
+                lastName={employee.lastName}
+                title={employee.title}
+                prefix={employee.prefix}
+                postfix={employee.postfix}
+              />
+            );
+          })}
         </section>
       </main>
     );
