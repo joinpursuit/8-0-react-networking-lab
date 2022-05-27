@@ -24,13 +24,22 @@ export default class Employee extends Component {
       .then((pets) => {
         console.log(id);
         console.log(pets);
-        // this.setState({
-        //   petList: pets,
-        // });
+        this.setState({
+          petList: pets,
+        });
         //console.log(this.state.petList)
       })
       .catch((err) => console.log(err));
   };
+
+  handleClick = (e) => {
+    //call listPet
+    //render the PetList element
+  };
+
+  componentDidUpdate() {
+    alert("HELLO");
+  }
 
   render() {
     return (
@@ -40,10 +49,9 @@ export default class Employee extends Component {
           {this.state.postfix}
         </h3>
         <h4>{this.state.title}</h4>
-        <h4>{this.state.id}</h4>
         {/* <h3>Person's name and title go here</h3>
         <h4>Actually just their title will go here</h4> */}
-        <button onClick={e => this.listPet(this.state.id)}>Show Pets</button>
+        <button onClick={(e) => this.listPet(this.state.id)}>Show Pets</button>
         <PetList pets={this.state.petList} />
       </article>
     );

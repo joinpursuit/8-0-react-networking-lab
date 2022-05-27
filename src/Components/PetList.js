@@ -5,20 +5,18 @@ export default class PetList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      petList: this.props.petList,
+      petList: this.props.pets,
     };
   }
 
   render() {
     return (
       <aside className="petList">
-        {this.state.petList.map((pet) => {
-          return (
-            <ul>
-              <li>{pet}</li>
-            </ul>
-          );
-        })}
+        <ul>
+          {this.state.petList.map((pet) => {
+            return <li>{pet.name}</li>;
+          })}
+        </ul>
       </aside>
     );
   }

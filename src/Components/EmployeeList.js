@@ -6,7 +6,7 @@ import "./EmployeeList.css";
 
 export default class EmployeeList extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       employeeList: [],
     };
@@ -15,17 +15,12 @@ export default class EmployeeList extends Component {
   listEmployees = () => {
     fetch("https://vet-lab-8-4.herokuapp.com/api/employees")
       .then((employees) => employees.json())
-      //.then((employees) => console.log(employees))
       .then((employees) => {
-        this.setState ({
-          employeeList : employees
-        })
-        // for (let employee of employees) {
-        //   this.state.employeeList.push(employee);
-        // }
-        //console.log(this.state.employeeList);
+        this.setState({
+          employeeList: employees,
+        });
       })
-      .catch ((err) => alert("ERROR"));
+      .catch((err) => alert("ERROR"));
   };
 
   componentDidMount() {
@@ -33,7 +28,7 @@ export default class EmployeeList extends Component {
   }
 
   componentDidUpdate(prevState) {
-    console.log(prevState)
+    console.log(prevState);
   }
 
   render() {
