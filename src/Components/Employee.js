@@ -13,6 +13,7 @@ export default class Employee extends Component {
       postfix: this.props.postfix,
       id: this.props.id,
       petList: [],
+      isActive : false
     };
     //console.log(props);
     //console.log(this.state.petList)
@@ -26,6 +27,7 @@ export default class Employee extends Component {
         console.log(pets);
         this.setState({
           petList: pets,
+          isActive : true
         });
         //console.log(this.state.petList)
       })
@@ -39,6 +41,7 @@ export default class Employee extends Component {
 
   componentDidUpdate() {
     alert("HELLO");
+    console.log();
   }
 
   render() {
@@ -52,7 +55,8 @@ export default class Employee extends Component {
         {/* <h3>Person's name and title go here</h3>
         <h4>Actually just their title will go here</h4> */}
         <button onClick={(e) => this.listPet(this.state.id)}>Show Pets</button>
-        <PetList pets={this.state.petList} />
+        {this.state.isActive ? <PetList pets={this.state.petList}/> : null}
+        
       </article>
     );
   }

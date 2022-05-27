@@ -12,11 +12,11 @@ export default class PetList extends Component {
   render() {
     return (
       <aside className="petList">
-        <ul>
+        <div>
           {this.state.petList.map((pet) => {
-            return <li>{pet.name}</li>;
+            return <p>{pet.name}</p>;
           })}
-        </ul>
+        </div>
       </aside>
     );
   }
