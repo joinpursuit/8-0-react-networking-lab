@@ -50,6 +50,7 @@ export default class EmployeeList extends Component {
                 title={employee.title}
                 prefix={employee.prefix}
                 postfix={employee.postfix}
+                id={employee.id}
               />
             );
           })}

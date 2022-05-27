@@ -11,7 +11,7 @@ export default class Employee extends Component {
       title: this.props.title,
       prefix: this.props.prefix,
       postfix: this.props.postfix,
-      id: this.props.key,
+      id: this.props.id,
       petList: [],
     };
     //console.log(props);
@@ -22,9 +22,11 @@ export default class Employee extends Component {
     fetch(`https://vet-lab-8-4.herokuapp.com/api/pets?employeeId=${id}`)
       .then((pets) => pets.json())
       .then((pets) => {
-        this.setState({
-          petList: pets,
-        });
+        console.log(id);
+        console.log(pets);
+        // this.setState({
+        //   petList: pets,
+        // });
         //console.log(this.state.petList)
       })
       .catch((err) => console.log(err));
@@ -41,7 +43,7 @@ export default class Employee extends Component {
         <h4>{this.state.id}</h4>
         {/* <h3>Person's name and title go here</h3>
         <h4>Actually just their title will go here</h4> */}
-        <button>Show Pets</button>
+        <button onClick={e => this.listPet(this.state.id)}>Show Pets</button>
         <PetList pets={this.state.petList} />
       </article>
     );
