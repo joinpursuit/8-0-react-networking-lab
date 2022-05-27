@@ -10,26 +10,6 @@ export class Employee extends React.Component {
       toggle: false,
     }
   }
-  //   const delComma = (staffs) => {
-  //     let post = staffs.postfix
-  //     let firstName = staffs.firstName
-  //     let lastName = staffs.lastName
-  //     let prefix = staffs.prefix
-  //     for (let staff of staffs) {
-  //       if (staff.includes(post)) {
-  //         return (<p>
-  //           {prefix} {firstName} {lastName}, ${post}
-  //         </p>)
-
-  //       } else {
-  //         return (
-  //           <p>
-  //             {prefix} {firstName} {lastName}
-  //           </p>
-  //         )
-  //     }
-  //   }
-  // }
 
   getPets = () => {
     fetch('https://serene-tundra-77911.herokuapp.com/api/pets')
@@ -60,9 +40,7 @@ export class Employee extends React.Component {
           {prefix} {firstName} {lastName}, {postfix}
         </h3>
         <h4>{title}</h4>
-        <button className={toggle ? 'visited' : 'show'} onClick={this.toggle}>
-          Show Pets
-        </button>
+        <button onClick={this.toggle}>Show Pets</button>
         {toggle ? <PetList pets={pets} employees={employees} /> : null}
       </article>
     )
