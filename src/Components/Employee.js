@@ -33,12 +33,25 @@ export class Employee extends React.Component {
     const { employees } = this.props
     const { firstName, lastName, prefix, postfix, title } = employees
     const { toggle, pets } = this.state
-    console.log()
+
+    let name = ''
+    if (postfix) {
+      name = (
+        <p>
+          {prefix} {firstName} {lastName}, {postfix}
+        </p>
+      )
+    } else {
+      name = (
+        <p>
+          {prefix} {firstName} {lastName}
+        </p>
+      )
+    }
+
     return (
       <article className='employee'>
-        <h3>
-          {prefix} {firstName} {lastName}, {postfix}
-        </h3>
+        <h3>{name}</h3>
         <h4>{title}</h4>
         <button onClick={this.toggle}>Show Pets</button>
         {toggle ? <PetList pets={pets} employees={employees} /> : null}
