@@ -13,9 +13,20 @@ export default class PetList extends Component {
     return (
       <aside className="petList">
         <div>
-          {this.state.petList.length ? this.state.petList.map((pet) => {
-            return <p>{pet.name}</p>;
-          }) : <h4>No pets listed</h4>} 
+          <br></br>
+          {this.state.petList.length ? (
+            this.state.petList.map((pet) => {
+              return (
+                <>
+                  {pet.name}
+                  {this.state.petList.indexOf(pet) === this.state.petList.length-1 ? null : ", " }
+                  
+                </>
+              );
+            })
+          ) : (
+            <h4>No pets listed</h4>
+          )}
         </div>
       </aside>
     );
