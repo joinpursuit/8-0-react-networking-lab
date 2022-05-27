@@ -48,8 +48,8 @@ export default class Employee extends Component {
     return (
       <article className="employee">
         <h3>
-          {this.state.prefix} {this.state.firstName} {this.state.lastName}{" "}
-          {this.state.postfix}
+          {this.state.prefix} {this.state.firstName} {this.state.lastName}
+          {this.state.postfix ? `, ${this.state.postfix}` : null}
         </h3>
         <h4>{this.state.title}</h4>
         {/* <h3>Person's name and title go here</h3>
