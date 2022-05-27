@@ -1,14 +1,38 @@
-import React from "react";
-import NavBar from "./Components/NavBar";
-import EmployeeList from "./Components/EmployeeList";
+import React from 'react'
+import NavBar from './Components/NavBar'
+import EmployeeList from './Components/EmployeeList'
 
-const App = () => {
-  return (
-    <>
-      <NavBar />
-      <EmployeeList />
-    </>
-  );
-};
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      employees: [],
+    }
+  }
 
-export default App;
+  getEmployee = () => {
+    fetch('http://serene-tundra-77911.herokuapp.com/api/employees')
+      .then((response) => response.json())
+      .then((json) => this.setState({ employees: json }))
+      .catch((err) => {
+        console.log('There is an error')
+      })
+  }
+
+  componentDidMount() {
+    this.getEmployee()
+  }
+
+  render() {
+    const { employees } = this.state
+
+    return (
+      <>
+        <NavBar />
+        <EmployeeList employees={employees} />
+      </>
+    )
+  }
+}
+
+export default App

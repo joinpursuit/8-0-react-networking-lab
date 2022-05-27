@@ -1,9 +1,21 @@
-export const PetList = () => {
-  return (
-    <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
-    </aside>
-  );
-};
+export const PetList = ({ employees: { id }, pets }) => {
+  const ids = (animals) => {
+    let array = []
+    for (let animal of animals) {
+      if (id === animal.employeeId) {
+        array.push(animal.name)
+      }
+    }
+    return array.join(', ')
+  }
 
-export default PetList;
+  return (
+    <aside className='pets-list'>
+      <p>
+        {ids(pets) === '' ? 'No pets listed for this employee.' : ids(pets)}
+      </p>
+    </aside>
+  )
+}
+
+export default PetList
