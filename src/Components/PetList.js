@@ -19,8 +19,10 @@ export default class PetList extends Component {
               return (
                 <>
                   {pet.name}
-                  {this.state.petList.indexOf(pet) === this.state.petList.length-1 ? null : ", " }
-                  
+                  {this.state.petList.indexOf(pet) ===
+                  this.state.petList.length - 1
+                    ? null
+                    : ", "}
                 </>
               );
             })

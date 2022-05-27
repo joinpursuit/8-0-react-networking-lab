@@ -13,35 +13,24 @@ export default class Employee extends Component {
       postfix: this.props.postfix,
       id: this.props.id,
       petList: [],
-      isActive : false
+      isActive: false,
     };
-    //console.log(props);
-    //console.log(this.state.petList)
   }
 
   listPet = (id) => {
     fetch(`https://vet-lab-8-4.herokuapp.com/api/pets?employeeId=${id}`)
       .then((pets) => pets.json())
       .then((pets) => {
-        console.log(id);
-        console.log(pets);
         this.setState({
           petList: pets,
-          isActive : true
+          isActive: true,
         });
-        //console.log(this.state.petList)
       })
       .catch((err) => console.log(err));
   };
 
-  handleClick = (e) => {
-    //call listPet
-    //render the PetList element
-  };
-
   componentDidUpdate() {
-    alert("HELLO");
-    console.log();
+    console.log("HOLD ON");
   }
 
   render() {
@@ -52,16 +41,9 @@ export default class Employee extends Component {
           {this.state.postfix ? `, ${this.state.postfix}` : null}
         </h3>
         <h4>{this.state.title}</h4>
-        {/* <h3>Person's name and title go here</h3>
-        <h4>Actually just their title will go here</h4> */}
         <button onClick={(e) => this.listPet(this.state.id)}>Show Pets</button>
-        {this.state.isActive ? <PetList pets={this.state.petList}/> : null}
-        
+        {this.state.isActive ? <PetList pets={this.state.petList} /> : null}
       </article>
     );
   }
 }
-
-// For line 30:
-
-// Fetch and map through pets, assigning pets based on the passed through id prop

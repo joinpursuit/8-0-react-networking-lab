@@ -24,11 +24,7 @@ export default class EmployeeList extends Component {
   };
 
   componentDidMount() {
-    this.listEmployees();
-  }
-
-  componentDidUpdate(prevState) {
-    console.log(prevState);
+    this.listEmployees(); // To call the listEmployees as soon as component is loaded
   }
 
   render() {
