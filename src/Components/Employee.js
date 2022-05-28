@@ -33,6 +33,10 @@ export default class Employee extends Component {
       .catch((err) => console.log(err));
   };
 
+  // I see why nested ternary operators can be kind of confusing now. The above
+  // handles hiding the petlist along with actually showing it and passing the
+  // data through correctly.
+
   componentDidUpdate() {
     console.log("HOLD ON");
   }
