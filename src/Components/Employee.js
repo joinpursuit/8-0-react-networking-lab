@@ -21,10 +21,14 @@ export default class Employee extends Component {
     fetch(`https://vet-lab-8-4.herokuapp.com/api/pets?employeeId=${id}`)
       .then((pets) => pets.json())
       .then((pets) => {
-        this.setState({
-          petList: pets,
-          isActive: true,
-        });
+        !this.state.isActive
+          ? this.setState({
+              isActive: true,
+              petList: pets,
+            })
+          : this.setState({
+              isActive: false,
+            });
       })
       .catch((err) => console.log(err));
   };
