@@ -35,7 +35,8 @@ export default class Employee extends Component {
 
   // I see why nested ternary operators can be kind of confusing now. The above
   // handles hiding the petlist along with actually showing it and passing the
-  // data through correctly.
+  // data through correctly. I don't know if doing this kind of thing is technically
+  // cool to do in the fetch... but why not.
 
   componentDidUpdate() {
     console.log("HOLD ON");
@@ -50,7 +51,7 @@ export default class Employee extends Component {
         </h3>
         <h4>{this.state.title}</h4>
         <button onClick={(e) => this.listPet(this.state.id)}>Show Pets</button>
-        {this.state.isActive ? <PetList pets={this.state.petList} /> : null}
+        {this.state.isActive ? <PetList key={this.state.id} pets={this.state.petList} /> : null}
       </article>
     );
   }
