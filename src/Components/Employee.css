@@ -1,5 +1,5 @@
 .employee {
-  border: 1px solid var(--gold);
+  border: 1px solid  rgb(78, 159, 206);
   border-radius: 5px;
   padding: 25px;
   text-align: center;
@@ -14,7 +14,7 @@
 }
 
 .employee button {
-  background: var(--gold);
+  background: rgb(157, 226, 223);
   border: 1px solid var(--dark);
   border-radius: 5px;
   cursor: pointer;
