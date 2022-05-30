@@ -2,17 +2,6 @@ import React from "react";
 import PetList from "./PetList";
 import "./Employee.css";
 
-const nameFormatter = (prefix, firstName, lastName, postfix) => {
-  if (prefix === "" && postfix === "") {
-    return <h3>{`${firstName} ${lastName}`}</h3>;
-  } else if (prefix === "") {
-    return <h3>{`${firstName} ${lastName}, ${postfix}`}</h3>;
-  } else if (postfix === "") {
-    return <h3>{`${prefix} ${firstName} ${lastName}`}</h3>;
-  }
-  return <h3>{`${prefix} ${firstName} ${lastName}, ${postfix}`}</h3>;
-};
-
 class Employee extends React.Component {
   constructor() {
     super();
@@ -28,11 +17,22 @@ class Employee extends React.Component {
       .then((json) => this.setState({ pets: json }));
   }
 
-  togglePets = () => {
+  togglePetsDisplay = () => {
     const { showPets } = this.state;
     this.setState({
       showPets: !showPets,
     });
+  };
+
+  nameFormatter = (prefix, firstName, lastName, postfix) => {
+    if (prefix === "" && postfix === "") {
+      return <h3>{`${firstName} ${lastName}`}</h3>;
+    } else if (prefix === "") {
+      return <h3>{`${firstName} ${lastName}, ${postfix}`}</h3>;
+    } else if (postfix === "") {
+      return <h3>{`${prefix} ${firstName} ${lastName}`}</h3>;
+    }
+    return <h3>{`${prefix} ${firstName} ${lastName}, ${postfix}`}</h3>;
   };
 
   render() {
@@ -40,14 +40,12 @@ class Employee extends React.Component {
     const { prefix, firstName, lastName, title, postfix, id } = employee;
     return (
       <article className="employee">
-        {nameFormatter(prefix, firstName, lastName, postfix)}
+        {this.nameFormatter(prefix, firstName, lastName, postfix)}
         <h4>{title}</h4>
-        <button onClick={() => this.togglePets()}>Show Pets</button>
-        {this.showPets ? (
+        <button onClick={this.togglePetsDisplay}>Show Pets</button>
+        <div className={this.state.showPets ? "visible" : "hidden"}>
           <PetList pets={this.state.pets} employeeId={id} />
-        ) : (
-          ""
-        )}
+        </div>
       </article>
     );
   }
