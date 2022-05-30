@@ -2,14 +2,15 @@ import React from "react";
 import Employee from "./Employee";
 import "./EmployeeList.css";
 
-export const EmployeeList = () => {
+const EmployeeList = ({ employees }) => {
   return (
-    <main>
-      <h2>All Staff</h2>
+    <div>
       <section className="employee-list">
-        <Employee />
+        {employees.map((employee) => {
+          return <Employee key={employee.id} employee={employee} />;
+        })}
       </section>
-    </main>
+    </div>
   );
 };
 

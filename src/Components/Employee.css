@@ -27,3 +27,11 @@
   color: white;
   transition: 0.3s all;
 }
+
+.employee .visible {
+  display: block;
+}
+
+.employee .hidden {
+  display: none;
+}
