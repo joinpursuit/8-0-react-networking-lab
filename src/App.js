@@ -6,6 +6,7 @@ const App = () => {
   return (
     <>
       <NavBar />
+      {/* Renders all staff */}
       <EmployeeList />
     </>
   );
