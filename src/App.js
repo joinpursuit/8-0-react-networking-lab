@@ -6,26 +6,29 @@ class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      EMPLOYEES_URL: "",
+      employeeArray: [],
 
     }
   }
   //fetch new url and the update component state
-  fetchdata = () => {
+  fetchData = () => {
     fetch('https://serene-tundra-77911.herokuapp.com/api/employees')
     .then((res) => res.json())
     .then((employees) => {
     this.setState({
-      EMPLOYEES_URL: employees,
+      employeesArr: employees,
     });
     });
     }; 
+    componentDidMount() {
+      this.fetchData();
+    }
     render() {
-      const { EMPLOYEES_URL } = this.state;
+      const {employeeArray} = this.state;
         return (
     <>
       <NavBar />
-      <EmployeeList employees={EMPLOYEES_URL}/>
+      <EmployeeList employeeArray={employeeArray}/>
     </>
   );
 };
