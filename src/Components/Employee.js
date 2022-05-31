@@ -4,17 +4,26 @@ import "./Employee.css";
 
 class Employee extends React.Component {
   constructor() {
-    super()
+    super();
+    this.state = {
+      showPetsList: false,
+    }
   }
+
+  showAndHidePetList = (id) => {
+    this.setState({ showPetsList: !this.state.showPetsList });
+  };
 
   render() {
     const { id, firstName, lastName, title, prefix, postfix } = this.props.employee;
+    let btnLabel = this.state.showPetsList ? "Hide Pets" : "Show Pets";
+
     return (
       <article className="employee" key={id}>
         <h3>{(prefix) ? prefix : ''} {firstName} {(postfix) ? `${lastName}, ${ postfix}` : `${lastName}`}</h3>
         <h4>{title}</h4>
-        <button>Show Pets</button>
-        <PetList employeeId={id}/>
+        <button onClick={this.showAndHidePetList}>{btnLabel}</button>
+        {this.state.showPetsList && <PetList employeeId={id}/>}
       </article>
     );
   }
