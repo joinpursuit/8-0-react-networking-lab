@@ -8,14 +8,13 @@ class Employee extends React.Component {
   }
 
   render() {
-    const { firstName, lastName, title, prefix, postfix } = this.props.employee;
+    const { id, firstName, lastName, title, prefix, postfix } = this.props.employee;
     return (
-      <article className="employee">
-        {console.log(this.props.employee)}
-        <h3>{(prefix) ? prefix : ''} {firstName} {lastName}</h3>
+      <article className="employee" key={id}>
+        <h3>{(prefix) ? prefix : ''} {firstName} {(postfix) ? `${lastName}, ${ postfix}` : `${lastName}`}</h3>
         <h4>{title}</h4>
         <button>Show Pets</button>
-        <PetList />
+        <PetList employeeId={id}/>
       </article>
     );
   }
