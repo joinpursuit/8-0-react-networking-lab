@@ -16,7 +16,7 @@ class App extends React.Component {
     .then((res) => res.json())
     .then((employees) => {
     this.setState({
-      employeesArr: employees,
+      employeesArray: employees,
     });
     });
     }; 
