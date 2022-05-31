@@ -2,6 +2,8 @@ nav {
   background: var(--primary);
   border-bottom: 3px solid var(--dark);
   color: white;
+  font-weight: bolder;
+  font-size: xx-large;
   text-align: center;
 }
 
