@@ -21,7 +21,11 @@ class PetList extends React.Component {
 
   render() {
     let allPets = this.state.pets.map((pet) => {
-      return <> {pet.name}</>;
+      return (
+        <>
+          {pet.name}, <br></br>
+        </>
+      );
     });
     return (
       <aside className="pets-list">
