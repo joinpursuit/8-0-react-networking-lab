@@ -7,7 +7,7 @@ class Employee extends React.Component {
     super();
     this.state = { ownersOfHumans: null };
   }
-
+//fectch new url I don't know if I'm doing it right.
   fetchDogs = (person) => {
     fetch('https://serene-tundra-77911.herokuapp.com/api/pets')
       .then((res) => res.json())
