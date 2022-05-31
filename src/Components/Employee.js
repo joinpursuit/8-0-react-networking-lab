@@ -12,7 +12,7 @@ class Employee extends React.Component {
     return (
       <article className="employee">
         {console.log(this.props.employee)}
-        <h3>{firstName} {lastName}</h3>
+        <h3>{(prefix) ? prefix : ''} {firstName} {lastName}</h3>
         <h4>{title}</h4>
         <button>Show Pets</button>
         <PetList />
