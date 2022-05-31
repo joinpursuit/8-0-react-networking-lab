@@ -2,15 +2,31 @@ import React from "react";
 import Employee from "./Employee";
 import "./EmployeeList.css";
 
-export const EmployeeList = () => {
-  return (
-    <main>
-      <h2>All Staff</h2>
-      <section className="employee-list">
-        <Employee />
-      </section>
-    </main>
-  );
-};
-
-export default EmployeeList;
+export default class EmployeeList extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      listemployees: [],
+    };
+  }
+  componentDidMount() {
+    fetch("https://serene-tundra-77911.herokuapp.com/api/employees")
+      .then((response) => response.json())
+      .then((obj) => {
+        this.setState({ listemployees: [...obj] });
+      })
+      .catch(console.log);
+  }
+  render() {
+    return (
+      <main>
+        <h2>All Staff</h2>
+        <section className="employee-list">
+          {this.state.listemployees.map((el, i) => (
+            <Employee key={i} employee={el} />
+          ))}
+        </section>
+      </main>
+    );
+  }
+}
