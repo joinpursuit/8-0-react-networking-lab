@@ -23,27 +23,20 @@ componentDidMount() {
   this.getAllPets();
 }
 
-// getStudentDetails(students, id) {
-//   const studentById  = students.filter(student => student.id === id),
-//         academicData = studentById.map(e => 
-//     <>
-    
-//     </>);
-// }
+getPetsByEmployee(pets, id) {
+  // >> Filtering pets by employee Id
+  const petByEmployeeId  = pets.filter(pet => pet.employeeId === id);
+  if(petByEmployeeId.length !== 0){
+    return <ul>{petByEmployeeId.map(pet => <li key={pet.id}>{pet.name}</li>)}</ul>
+  } else {
+    return <p>No pets listed for this employee.</p>;
+  }
+}
 
 render() {
-  //const { id } = this.props.employeeId;
-  const petByEmployeeId  = (this.state.allPets).filter(pet => pet.employeeId === this.props.employeeId);
-  let petList;
-  if(petByEmployeeId.length !== 0){
-    petList = <ul>{petByEmployeeId.map(pet => <li key={pet.id}>{pet.name}</li>)}</ul>
-  } else {
-    petList = <p>No pets listed for this employee.</p>;
-  }
   return (
-    
     <aside className="pets-list">
-      {petList}
+      {this.getPetsByEmployee(this.state.allPets, this.props.employeeId)}
     </aside>
   );
 }
