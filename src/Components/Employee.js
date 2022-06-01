@@ -16,10 +16,12 @@ const Employee = (props) => {
     fetch(`https://vet-lab-8-4.herokuapp.com/api/pets?employeeId=${id}`)
       .then((pets) => pets.json())
       .then((pets) => {
-        this.setState({
-          petList: pets,
-          isActive: true,
-        });
+        setpetList(pets)
+        setisActive(true)
+        // this.setState({
+        //   petList: pets,
+        //   isActive: true,
+        // });
       })
       .catch((err) => console.log(err));
   };
