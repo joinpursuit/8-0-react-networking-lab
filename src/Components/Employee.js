@@ -1,15 +1,37 @@
-import PetList from "./PetList";
+import { Component } from "react";
 import "./Employee.css";
+import PetList from "./PetList.js";
 
-export const Employee = () => {
-  return (
-    <article className="employee">
-      <h3>Staff Member Name</h3>
-      <h4>Staff Member Title</h4>
-      <button>Show Pets</button>
-      <PetList />
-    </article>
-  );
-};
+class Employee extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showPets: false,
+    };
+  }
+
+  render() {
+    const petButton = this.state.showPets ? "Hide pets" : "Show pets";
+    const { id, prefix, firstName, lastName, title, postfix } =
+      this.props.employee;
+    return (
+      <article className='employee'>
+        <h3>
+          {prefix} {firstName} {lastName}
+          {postfix && ", " + postfix}
+        </h3>
+        <h4>{title}</h4>
+        <button
+          onClick={() => {
+            this.setState({ showPets: !this.state.showPets });
+          }}
+        >
+          {petButton}
+        </button>
+        {this.state.showPets && <PetList id={id} />}
+      </article>
+    );
+  }
+}
 
 export default Employee;
