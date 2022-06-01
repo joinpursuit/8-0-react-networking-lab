@@ -28,7 +28,7 @@ class PetList extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.id !== this.props.id) {
-      this.getDogs(this.props.id);
+      this.getPets(this.props.id);
     }
   }
 

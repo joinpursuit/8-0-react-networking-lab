@@ -11,9 +11,10 @@ class Employee extends Component {
   }
 
   render() {
-    const petButton = this.state.showPets ? "Hide pets" : "Show pets";
-    const { id, prefix, firstName, lastName, title, postfix } =
+    const petsStatus = this.state.showPets;
+    const { id, prefix, firstName, lastName, postfix, title } =
       this.props.employee;
+    const petButton = petsStatus ? "Hide pets" : "Show pets";
     return (
       <article className='employee'>
         <h3>
@@ -21,14 +22,15 @@ class Employee extends Component {
           {postfix && ", " + postfix}
         </h3>
         <h4>{title}</h4>
+
         <button
           onClick={() => {
-            this.setState({ showPets: !this.state.showPets });
+            this.setState({ showPets: !petsStatus });
           }}
         >
           {petButton}
         </button>
-        {this.state.showPets && <PetList id={id} />}
+        {petsStatus && <PetList id={id} />}
       </article>
     );
   }
