@@ -14,7 +14,7 @@ class Employee extends Component {
     const petsStatus = this.state.showPets;
     const { id, prefix, firstName, lastName, postfix, title } =
       this.props.employee;
-    const petButton = petsStatus ? "Hide pets" : "Show pets";
+    const petButton = petsStatus ? "Hide Pets" : "Show Pets";
     return (
       <article className='employee'>
         <h3>
