@@ -1,40 +1,30 @@
-import { Component } from "react/cjs/react.production.min";
+import React, { useEffect, useState } from "react";
 
-class PetList extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      employeePets : [],
-    }
-  };
+const PetList = ({ id, showPets }) => {
+  const [employeePets, setEmployeePets] = useState([]);
 
-  getEmployeesPets = (id) => {
+  const getEmployeesPets = (id) => {
     fetch(`https://vet-lab-8-4.herokuapp.com/api/pets?employeeId=${id}`)
       .then(data => data.json())
       .then(json => {
-        this.setState({
-          employeePets: json,
-        })
+        setEmployeePets(json)
       })
   }
-  componentDidMount() {
-    this.getEmployeesPets(this.props.id)
-    console.log(this.props.id)
-    console.log(this.state.employeePets)
-    // this.getEmployeesPets(this.props.employeeChosen);
-  }
-  
-  render(){
-    const { showPets } = this.props;
-    console.log(showPets);
-    return (
-      
+  useEffect(() => {
+    getEmployeesPets(id)
+  }, []
+  )
+
+  return (
     <aside className="pets-list">
-      {showPets ? (this.state.employeePets.length) > 0 ? this.state.employeePets.map(pet => <p>{pet.name} </p>) : <p>No pets listed for this employee</p> : null}
+      {showPets ? (employeePets.length) > 0 ?
+        employeePets.map(pet => <p key={Math.random(Math.floor * 100)}>{pet.name}</p>) :
+        <p>No pets listed for this employee</p> :
+        null}
     </aside>
   );
-  }
-  
+
+
 };
 
 export default PetList;

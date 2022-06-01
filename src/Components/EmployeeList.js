@@ -1,42 +1,36 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Employee from "./Employee";
 import "./EmployeeList.css";
 
-class EmployeeList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      EmployeeArray: [],
-    };
-  };
+const EmployeeList = () => {
+  const [EmployeeArray, setEmployeeArray] = useState([]);
 
-  getEmployees = () => {
+  const getEmployees = () => {
     fetch("https://vet-lab-8-4.herokuapp.com/api/employees")
       .then(data => data.json())
       .then(json => {
-        this.setState({
-          EmployeeArray: json
-        })
+        setEmployeeArray(json);
       })
   }
+  useEffect(() => {
+    getEmployees()
+  }, []
+  )
 
-  componentDidMount() {
-    this.getEmployees();
-  }
-
-  render() {
-    return (
+  return (
+    <>
+      <h2>All Staff</h2>
       <main>
-        <h2>All Staff</h2>
-        <section className="employee-list">
-          {this.state.EmployeeArray.map(employee => {
-            // console.log(employee);
-            return (<Employee key={employee.id} employee={employee} />)
-          })}
-        </section>
+      <section className="employee-list">
+        {EmployeeArray.map(employee => {
+          console.log(employee);
+          return (<Employee key={employee.id} employee={employee} />)
+        })}
+      </section>
       </main>
-    );
-  }
+    </>
+  );
+
 };
 
 export default EmployeeList;
