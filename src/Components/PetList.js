@@ -1,7 +1,26 @@
-export const PetList = () => {
+import { Component } from "react/cjs/react.production.min";
+import React, { useEffect, useState } from "react";
+
+const PetList = (props) => {
+  const [petList, setpetList] = useState(props.pets);
+
   return (
-    <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
+    <aside className="petList">
+      <div>
+        <br></br>
+        {petList.length ? (
+          petList.map((pet) => {
+            return (
+              <>
+                {pet.name}
+                {petList.indexOf(pet) === petList.length - 1 ? null : ", "}
+              </>
+            );
+          })
+        ) : (
+          <h4>No pets listed</h4>
+        )}
+      </div>
     </aside>
   );
 };
