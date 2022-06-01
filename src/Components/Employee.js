@@ -11,6 +11,8 @@ const Employee = (props) => {
   const [id, setid] = useState(props.id);
   const [petList, setpetList] = useState([]);
   const [isActive, setisActive] = useState(false);
+
+  //It occurs to me now I probably didn't need to set all these up for useState, but whatever.
   
   const listPet = (id) => {
     fetch(`https://vet-lab-8-4.herokuapp.com/api/pets?employeeId=${id}`)
@@ -18,10 +20,6 @@ const Employee = (props) => {
       .then((pets) => {
         setpetList(pets)
         setisActive(true)
-        // this.setState({
-        //   petList: pets,
-        //   isActive: true,
-        // });
       })
       .catch((err) => console.log(err));
   };
@@ -35,11 +33,8 @@ const Employee = (props) => {
       <h3>
         {prefix} {firstName} {lastName}
         {postfix ? `, ${postfix}` : null}
-        {/* {this.state.prefix} {this.state.firstName} {this.state.lastName}
-        {this.state.postfix ? `, ${this.state.postfix}` : null} */}
       </h3>
       <h4>{title}</h4>
-      {/* <h4>{this.state.title}</h4> */}
       <button onClick={(e) => listPet(id)}>Show Pets</button>
       {isActive ? <PetList pets={petList} /> : null}
     </article>
@@ -47,26 +42,3 @@ const Employee = (props) => {
 };
 
 export default Employee
-//export default class Employee extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     firstName: this.props.firstName,
-  //     lastName: this.props.lastName,
-  //     title: this.props.title,
-  //     prefix: this.props.prefix,
-  //     postfix: this.props.postfix,
-  //     id: this.props.id,
-  //     petList: [],
-  //     isActive: false,
-  //   };
-  // }
-
-
-  // componentDidUpdate() {
-  //   console.log("HOLD ON");
-  // }
-
-//   render() {
-//   }
-// }

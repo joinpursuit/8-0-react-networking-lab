@@ -12,13 +12,11 @@ const EmployeeList = ({ employee }) => {
       .then((employees) => employees.json())
       .then((employees) => {
         setEmployeeList(employees);
-        // this.setState({
-        //   employeeList: employees,
-        // });
       })
       .catch((err) => alert("ERROR"));
   };
 
+  //Set to just go on-load
   useEffect(() => {
     listEmployees();
   }, []);
@@ -46,11 +44,3 @@ const EmployeeList = ({ employee }) => {
 };
 
 export default EmployeeList;
-
-//export default class EmployeeList extends Component {
-// constructor() {
-//   super();
-//   this.state = {
-//     employeeList: [],
-//   };
-// }

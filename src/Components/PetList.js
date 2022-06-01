@@ -26,15 +26,3 @@ const PetList = (props) => {
 };
 
 export default PetList;
-
-//export default class PetList extends Component {
-// constructor(props) {
-//   super(props);
-//   this.state = {
-//     petList: this.props.pets,
-//   };
-// }
-
-// render() {
-//}
-//}
