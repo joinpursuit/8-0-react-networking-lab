@@ -1,56 +1,84 @@
 // import React from "react";
 import Employee from "./Employee";
 import "./EmployeeList.css";
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 
-// export const EmployeeList = () => {
-//   return (
-//     <main>
-//       <h2>All Staff</h2>
-//       <section className="employee-list">
-//         <Employee />
-//       </section>
-//     </main>
-//   );
-// };
+// export class EmployeeList extends Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       employeeList: [],
+//     };
+//   }
 
-export class EmployeeList extends Component {
-  constructor() {
-    super();
+//   getEmployeeList = () => {
+//     fetch(`https://vet-lab-8-4.herokuapp.com/api/employees`)
+//       .then((data) => data.json())
+//       .then((json) => {
+//         // console.log(json);
+//         this.setState({
+//           employeeList: json,
+//         });
+//       })
+//       .catch((err) => console.log(err));
+//   };
 
-    this.state = {
-      employeeList: [],
-    };
-  }
 
-  getEmployeeList = () => {
+//   componentDidMount() {
+//     this.getEmployeeList();
+//   }
+
+//   render() {
+//     return (
+//       <main>
+//         <h2>All Staff</h2>
+//         <section className='employee-list'>
+//           {this.state.employeeList.map((eachEmp) => (
+//             <Employee employee={eachEmp} />
+//           ))}
+//         </section>
+//       </main>
+//     );  }
+// }
+
+
+const EmployeeList = () => {
+
+const [employeeList, setEmployeeList] = useState([]);
+
+
+  const getEmployeeList = () => {
     fetch(`https://vet-lab-8-4.herokuapp.com/api/employees`)
       .then((data) => data.json())
       .then((json) => {
         // console.log(json);
-        this.setState({
-          employeeList: json,
-        });
+        setEmployeeList(json)
       })
       .catch((err) => console.log(err));
   };
 
+  return (
+    <>
+     {getEmployeeList()}
+<main>
+         <h2>All Staff</h2>
+         <section className='employee-list'>
+           
+           {employeeList.map((eachEmp) => (
+             <Employee employee={eachEmp} />
+           ))}
 
-  componentDidMount() {
-    this.getEmployeeList();
-  }
+         </section>
+</main>
+    
+    </>
+   
 
-  render() {
-    return (
-      <main>
-        <h2>All Staff</h2>
-        <section className='employee-list'>
-          {this.state.employeeList.map((eachEmp) => (
-            <Employee employee={eachEmp} />
-          ))}
-        </section>
-      </main>
-    );  }
+  )
+
+
 }
+
+
 
 export default EmployeeList;
