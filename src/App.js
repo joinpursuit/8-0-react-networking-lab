@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component, useState} from "react";
 import NavBar from "./Components/NavBar";
 import EmployeeList from "./Components/EmployeeList";
 
@@ -12,3 +12,17 @@ const App = () => {
 };
 
 export default App;
+
+// export default class App extends Component {
+  
+//  render() {
+//     return (
+//       <>
+//         <NavBar />
+//         <EmployeeList />
+//        </>
+//     )
+//   }
+// }
+
+
