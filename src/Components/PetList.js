@@ -6,7 +6,7 @@ const PetList = ({ pets }) => {
   return (
     <aside className="pets-list">
 
-      <div>{petNames.join(", ")}</div>
+      {petNames.length ? <div>{petNames.join(", ")}</div> : <div>No pets listed for this employee.</div>}
     </aside>
   );
 };

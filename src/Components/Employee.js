@@ -22,7 +22,7 @@ const Employee = ({id, firstName, lastName, prefix, postfix, title}) => {
 
     return (
       <article className="employee">
-        <h3> {prefix} {firstName} {lastName} {postfix} </h3>
+        <h3> {prefix} {firstName} {lastName}, {postfix} </h3>
 
         <h4>{title}</h4>
         <button onClick={()=> {setShowPets(!showPets)}}>{ showPets ? "Hide Pets" : "Show Pets"}</button>
