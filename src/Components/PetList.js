@@ -1,9 +1,14 @@
-export const PetList = () => {
+import { Component } from "react/cjs/react.production.min";
+
+const PetList = ({ pets }) => {
+  let petNames = pets.map(pet => pet.name)
+
   return (
     <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
+
+      <div>{petNames.join(", ")}</div>
     </aside>
   );
 };
-
-export default PetList;
+ 
+export default PetList
