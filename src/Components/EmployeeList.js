@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Employee from "./Employee";
 import "./EmployeeList.css";
 
-export const EmployeeList = () => {
+const EmployeeList = () => {
+  const [EmployeeArray, setEmployeeArray] = useState([]);
+
+  const getEmployees = () => {
+    fetch("https://vet-lab-8-4.herokuapp.com/api/employees")
+      .then(data => data.json())
+      .then(json => {
+        setEmployeeArray(json);
+      })
+  }
+  useEffect(() => {
+    getEmployees()
+  }, []
+  )
+
   return (
-    <main>
+    <>
       <h2>All Staff</h2>
+      <main>
       <section className="employee-list">
-        <Employee />
+        {EmployeeArray.map(employee => {
+          console.log(employee);
+          return (<Employee key={employee.id} employee={employee} />)
+        })}
       </section>
-    </main>
+      </main>
+    </>
   );
+
 };
 
 export default EmployeeList;
