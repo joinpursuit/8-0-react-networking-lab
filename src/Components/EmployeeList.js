@@ -14,6 +14,7 @@ export default class EmployeeList extends Component {
     fetch(`https://vet-lab-8-4.herokuapp.com/api/employees`)
       .then((data) => data.json())
       .then((json) => {
+        console.log("EMP".json)
         this.setState({
           employees: json,
         });
@@ -23,6 +24,8 @@ export default class EmployeeList extends Component {
 
   componentDidMount() {
     this.getEmployees();
+    console.log( this.getEmployees())
+
   }
 
   render() {

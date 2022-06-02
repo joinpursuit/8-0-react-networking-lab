@@ -5,10 +5,10 @@ import EmployeeList from "./Components/EmployeeList";
 export default class App extends Component {
   render() {
     return (
-      <>
+      <div>
         <NavBar />
         <EmployeeList />
-      </>
+      </div>
     );
   }
 }

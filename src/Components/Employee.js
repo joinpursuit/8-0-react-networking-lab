@@ -30,7 +30,7 @@ class Employee extends Component {
         >
           {petButton}
         </button>
-        {petsStatus && <PetList id={id} />}
+        {petsStatus && <PetList employeeId={id} />}
       </article>
     );
   }

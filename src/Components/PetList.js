@@ -10,14 +10,15 @@ class PetList extends Component {
 
   getPets() {
     fetch(
-      `https://vet-api-8-1.herokuapp.com/api/pets?employeeId=${this.props.id}`
+      `https://vet-api-8-1.herokuapp.com/api/pets?employeeId=${this.props.employeeId}`
     )
       .then((response) => {
         return response.json();
       })
       .then((json) => {
+        console.log("PETS",json)
         this.setState({
-          petData: json,
+          petData: json
         });
       });
   }
@@ -27,8 +28,8 @@ class PetList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.id !== this.props.id) {
-      this.getPets(this.props.id);
+    if (prevProps.employeeId !== this.props.employeeId) {
+      this.getPets(this.props.employeeId);
     }
   }
 
@@ -36,7 +37,7 @@ class PetList extends Component {
     const pets = this.state.petData.map(({ name, id }) => name).join(", ");
     return (
       <>
-        {pets.length > 0 ? (
+        {pets ? (
           <div>{pets} </div>
         ) : (
           <p>No pets listed for this employee.</p>
