@@ -7,7 +7,7 @@ export default class Employee extends Component {
     super(props);
     this.state = {
       petList: [],
-      
+      showPets: false,
     };
   }
   getPets = () => {
@@ -26,6 +26,26 @@ export default class Employee extends Component {
     this.getPets();
   }
 
+  handleClick = () => {
+    if (this.state.showPets === false) {
+        this.setState({
+          showPets: true,
+        })
+    } else {
+      this.setState({
+        showPets: false,
+      })
+    }
+  };
+
+  show = () => {
+    if(this.state.showPets === true){
+      return (
+        <PetList petList={this.state.petList}/>
+      )
+    }
+  }
+
 
   render() {
     const { employeeId, prefix, firstName, lastName, postfix, title } =
@@ -37,8 +57,8 @@ export default class Employee extends Component {
           {prefix} {firstName} {lastName} {postfix}
         </h3>
         <h4>{title}</h4>
-        <button onClick={this.petList ? <PetList petList={this.state.petList} />: null}>Show Pets</button>
-        {/* <PetList petList={this.state.petList} /> */}
+        <button onClick={this.handleClick}>Show Pets</button>
+        <section>{this.show()}</section>
       </article>
     );
   }
