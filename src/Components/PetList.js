@@ -16,9 +16,8 @@ class PetList extends Component {
         return response.json();
       })
       .then((json) => {
-        console.log("PETS",json)
         this.setState({
-          petData: json
+          petData: json,
         });
       });
   }
@@ -37,11 +36,7 @@ class PetList extends Component {
     const pets = this.state.petData.map(({ name, id }) => name).join(", ");
     return (
       <>
-        {pets ? (
-          <div>{pets} </div>
-        ) : (
-          <p>No pets listed for this employee.</p>
-        )}
+        {pets ? <div>{pets} </div> : <p>No pets listed for this employee.</p>}
       </>
     );
   }
