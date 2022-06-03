@@ -42,7 +42,7 @@ export default function Employee({employeeId, prefix, firstName, lastName, postf
     return (
       <article className="employee">
         <h3>
-          {prefix} {firstName} {lastName} {postfix}
+          {prefix} {firstName} {lastName}, {postfix}
         </h3>
         <h4>{title}</h4>
         <button onClick={handleClick}>Show Pets</button>

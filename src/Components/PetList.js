@@ -8,7 +8,7 @@ export default function PetList({petList}){
 
     return (
       <div>
-        <p>{pets.join(", ")}.</p>
+        {pets.length ? <p>{pets.join(", ")}</p> : <p>No pets listed for this employee.</p>}
       </div>
     );
   }
