@@ -1,15 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import NavBar from "./Components/NavBar";
 import EmployeeList from "./Components/EmployeeList";
 
-export default class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-
-    }
-  }
-  render() {
+export default function App() {
   return (
     <>
       <NavBar />
@@ -17,4 +10,3 @@ export default class App extends Component {
     </>
   );
 };
-}
