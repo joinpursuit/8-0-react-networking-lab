@@ -19,49 +19,49 @@ const App = () => {
       <EmployeeList />
     </>
   );
-
-  // const App = () => {
-  // constructor() {
-  // super()
-  // this.state = {
-  // workers: []
-  // }
-  // }
-  //
-  // fetchingEmpData = () => {
-  // fetch ("https://vet-lab-8-4.herokuapp.com/api/employees")
-  // .then (response => response.json())
-  // .then (json => {
-  // this.setState({
-  // workers: json
-  // })
-  // })
-  // }
-  // THIS FIRES THE FIRST TIME THE COMPONENT RENDERS. HAPPENS ONLY ONE TIME.
-  // componentDidMount() {
-  // this.fetchingEmpData()
-  // }
-  //
-  //
-  //
-  //
-  // render() {
-  // return (
-  // <>
-  {
-    /* <NavBar /> */
-  }
-  {
-    // console.log(this.state.workers);
-  }
-  {
-    /* <EmployeeList workers={this.state.workers}/> */
-  }
-  {
-    /* </> */
-  }
-  // );
-  // }
 };
 
 export default App;
+
+// const App = () => {
+// constructor() {
+// super()
+// this.state = {
+// workers: []
+// }
+// }
+//
+// fetchingEmpData = () => {
+// fetch ("https://vet-lab-8-4.herokuapp.com/api/employees")
+// .then (response => response.json())
+// .then (json => {
+// this.setState({
+// workers: json
+// })
+// })
+// }
+// THIS FIRES THE FIRST TIME THE COMPONENT RENDERS. HAPPENS ONLY ONE TIME.
+// componentDidMount() {
+// this.fetchingEmpData()
+// }
+//
+//
+//
+//
+// render() {
+// return (
+// <>
+{
+  /* <NavBar /> */
+}
+{
+  // console.log(this.state.workers);
+}
+{
+  /* <EmployeeList workers={this.state.workers}/> */
+}
+{
+  /* </> */
+}
+// );
+// }
