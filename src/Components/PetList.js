@@ -1,19 +1,17 @@
-import React from "react";
+import { Component } from "react/cjs/react.production.min";
 
+const PetList = ({ pets }) => {
+  let petNames = pets.map((pet) => pet.name);
 
-class PetList extends React.Component {
-  constructor() {
-    super()
-  }
-  render () {
-
-  
   return (
     <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
+      {petNames.length ? (
+        <div>{petNames.join(", ")}</div>
+      ) : (
+        <div>No pets listed for this employee.</div>
+      )}
     </aside>
   );
-  }
 };
 
 export default PetList;
