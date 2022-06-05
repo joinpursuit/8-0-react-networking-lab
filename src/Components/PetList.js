@@ -1,20 +1,15 @@
+import { Component } from "react/cjs/react.production.min";
 
+const PetList = ({ pets }) => {
+  let petNames = pets.map(pet => pet.name)
 
-
-// create a function to get pets with fetch and pets endpoint - return an array of 20 objects
-
-const getPets = () => {
-  fetch(`https://vet-lab-8-4.herokuapp.com/api/pets`)
-    .then(data => data.json())
-    .then(json => {console.log(json)})
-}
-
-export const PetList = () => {
   return (
     <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
+
+      {petNames.length ? <div>{petNames.join(", ")}</div> : <div>No pets listed for this employee.</div>}
     </aside>
+    
   );
 };
-
-export default PetList;
+ 
+export default PetList

@@ -3,34 +3,20 @@ import NavBar from "./Components/NavBar";
 import EmployeeList from "./Components/EmployeeList";
 
 
-
 const App = () => {
-  const [employee, setEmployees] = useState([])
-  const [pets, setPets] = useState([])
-  const getEmployees = () => {
-    fetch("https://vet-lab-8-4.herokuapp.com/api/employees")
-    .then(data => data.json())
-    .then(json => {setEmployees(json)})
-  }
-  // const getPets = () => {
-  //   fetch("https://vet-lab-8-4.herokuapp.com/api/pets")
-  //   .then(data => data.json())
-  //   .then(json => {setPets(json)})
-  // }
 
-useEffect(() => {
-  getEmployees()
-  // getPets()
-})
-
-
-
+  //1. Constructor fires-setting initial state
+  //2. render() -creates the stuff we see that gets put onto the virtual DOM
+  //3. ComponentDidMount? fire method 
+  //4. re render
+  
   return (
     <>
       <NavBar />
-      <EmployeeList employee ={employee}  pets={pets}/>
+      <EmployeeList />
     </>
   );
-};
+}
+
 
 export default App;
