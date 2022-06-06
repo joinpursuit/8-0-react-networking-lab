@@ -2,22 +2,28 @@ import React from "react";
 import Employee from "./Employee";
 import "./EmployeeList.css";
 
-class EmployeeList extends React.Component {
-  constructor(props) {
+const EmployeeList = ({workers}) => {
+ /* constructor(props) {
   super(props)
   }
-  render() {
+  render() {*/
   return (
     <main>
       
       <h2>All Staff</h2>
       <section className="employee-list">
-      {this.props.workers.map((worker) => {
+      {workers.map((id, firstName, lastName, prefix, postfix, title) => {
         return ( 
           <ul>
-            <li key={worker.id}>
+            <li key={id}>
           <Employee 
-          worker = {worker}/>
+          id = {id}
+          firstName = {firstName}
+          lastName = {lastName}
+          prefix = {prefix}
+          postfix = {postfix}
+          title = {title}
+          />
           </li>
           </ul>
         )
@@ -25,6 +31,5 @@ class EmployeeList extends React.Component {
       </section>
     </main>
   );
-};
 }
 export default EmployeeList;

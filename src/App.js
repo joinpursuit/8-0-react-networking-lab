@@ -1,39 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
 import NavBar from "./Components/NavBar";
 import EmployeeList from "./Components/EmployeeList";
 
-class App extends React.Component {
-  constructor() {
-  super()
-  this.state = {
-    workers: []
-  }
-}
-getEmployees=()=>{
+const App = () => {
+ 
+  /*this.state = {
+    workers: []*/
+    const [workers, setWorkers] = useState([]);
+  
+
+const getEmployees=(setWorkers)=>{
   fetch("https://vet-lab-8-4.herokuapp.com/api/employees")
   .then(data => data.json())// returns a promise and we pass data
   .then(json => {
-    this.setState({
-      workers: json
-    })
+    setWorkers(json)
   })
 }
 
 //this fires the first time the component renders
-componentDidMount() {
-  this.getEmployees()
-}
+useEffect(() => {
+  getEmployees(setWorkers)
+  return () => {
+    console.log("This component unmounted duh!")
+  }
+}, [workers])
 
-
-render() {
   return (
     <>
     <NavBar />
-    <EmployeeList workers = {this.state.workers}
+    <EmployeeList 
+    workers = {workers}
    />
     </>
   )
-}
-}
 
+}
 export default App;

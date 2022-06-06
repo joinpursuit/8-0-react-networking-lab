@@ -1,31 +1,31 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import PetList from "./PetList";
 import "./Employee.css";
 
-class Employee extends React.Component {
-  constructor(props) {
+
+const Employee = (id, firstName, lastName, prefix, postfix, title) => {
+  /*constructor(props) {
     super(props)
     this.state = {
-      pets: []
+      showPets: false,
     }
-  }
-  getPets = () => {
-    fetch("https://vet-lab-8-4.herokuapp.com/api/pets")
-    .then(data => data.json())// returns a promise and we pass data
-    .then(json => {
-      this.setState({
-        pets: json
-      })
-    })
-  }
-  componentDidMount() {
-    this.getPets()
-  }
+  }*/
 
-  changeState = (id) => {
-  console.log(id);
-  }
-  getPrefix =(firstName, lastName, prefix, postfix)=> {
+  /*const [showPets, setShowPets] = useState(false);
+  getPrefix = (firstName, lastName, prefix, postfix) => {
+    let fullName = "";
+   if (prefix !== "") {
+     fullName = `${prefix} ${firstName} ${lastName}`;
+   } else if (postfix !== "") {
+     fullName = `${firstName} ${lastName}, ${postfix}`;
+   } else {
+     fullName = `${firstName} ${lastName}`;
+   }
+   return fullName;
+  }*/
+
+  const [showPets, setShowPets] = useState({showPets:false});
+  const getPrefix = () => {
     let fullName = "";
    if (prefix !== "") {
      fullName = `${prefix} ${firstName} ${lastName}`;
@@ -36,19 +36,17 @@ class Employee extends React.Component {
    }
    return fullName;
   }
-
-  render(){
-    const {id, firstName, lastName, prefix, postfix, title} = this.props.worker
-   
+  //render(){
+  //  const {id, firstName, lastName, prefix, postfix, title} = this.props.worker
   return (
     <article className="employee">
-      <h3>{ this.getPrefix(firstName, lastName, prefix, postfix)}</h3>
+      <h3>{getPrefix()}</h3>
       <h4>{title}</h4>
-      <button onClick={this.changeState(id)}>Show pets</button>
-      <PetList id = {id}
-      pets = {this.props.pets}/>
+      <button 
+        onClick={() => setShowPets({showPets:!showPets})}>Show Pets</button>
+        <PetList id={id} showPets={showPets}/>
     </article>
   );
-};
+//};
 }
 export default Employee;
