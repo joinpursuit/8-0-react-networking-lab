@@ -4,7 +4,7 @@ import "./EmployeeList.css";
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
-
+  
   const getEmployees = () => {
     fetch("https://vet-lab-8-4.herokuapp.com/api/employees")
       .then((data) => data.json())
@@ -15,6 +15,7 @@ const EmployeeList = () => {
 
   useEffect(() => {
     getEmployees();
+    
   }, []);
 
   return (
