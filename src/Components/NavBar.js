@@ -1,11 +1,17 @@
+
 import "./NavBar.css";
 
-export const NavBar = () => {
+const NavBar = () => {
+
+
+
   return (
     <nav>
       <h1>Northwest Animal Hospital</h1>
     </nav>
   );
-};
 
-export default NavBar;
+}
+export default NavBar
+
+
