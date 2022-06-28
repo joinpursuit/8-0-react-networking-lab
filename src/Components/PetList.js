@@ -12,7 +12,7 @@ const PetList = ({ id, showPets }) => {
   }
   useEffect(() => {
     getEmployeesPets(id)
-  }, []
+  }, [id]
   )
 
   return (
