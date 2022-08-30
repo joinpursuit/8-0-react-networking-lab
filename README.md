@@ -22,6 +22,8 @@ In this lab, you will build a simple page that will show all of the employees at
 
 1. Open up the repository in VSCode. Follow the instructions below to complete the Lab.
 
+Your instructor set up the following [API](https://github.com/joinpursuit/resource-veterinarian-api) and give you the URL where to send your requests. 
+
 ### Tests
 
 To run the tests, you can run the following command from the command line. You will need to be in the root directory of your local directory.
