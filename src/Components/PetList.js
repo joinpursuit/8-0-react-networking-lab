@@ -1,17 +1,5 @@
-import { useState, useEffect } from "react";
-export const PetList = ({ employeeID }) => {
-  const [ownPets, setOwnPets] = useState([]);
-
-  useEffect(() => {
-    console.log("fetching pets");
-    fetch(
-      "https://vet-resource-api-9-2.herokuapp.com/api/pets?employeeId=" +
-        employeeID
-    )
-      .then((res) => res.json())
-      .then((pets) => setOwnPets(pets));
-  }, [employeeID]);
-
+import { useEffect } from "react";
+export const PetList = ({ ownPets }) => {
   return (
     <aside className="pets-list">
       <p>

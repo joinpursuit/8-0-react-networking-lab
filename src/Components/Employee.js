@@ -1,9 +1,21 @@
 import PetList from "./PetList";
 import "./Employee.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Employee = ({ employee }) => {
   const [showPets, setShowPets] = useState(false);
+  const [ownPets, setOwnPets] = useState([]);
+
+  useEffect(() => {
+    console.log(employee.id);
+    console.log("fetching pets");
+    fetch(
+      "https://vet-resource-api-9-2.herokuapp.com/api/pets?employeeId=" +
+        employee.id
+    )
+      .then((res) => res.json())
+      .then((pets) => setOwnPets(pets));
+  }, [employee.id]);
 
   return (
     <article className="employee">
@@ -15,7 +27,7 @@ export const Employee = ({ employee }) => {
       <button onClick={() => setShowPets(!showPets)}>
         {showPets ? "Hide " : "Show "} Pets
       </button>
-      {showPets && <PetList employeeID={employee.id} />}
+      {showPets && <PetList ownPets={ownPets} />}
     </article>
   );
 };
