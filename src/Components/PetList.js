@@ -1,7 +1,12 @@
-export const PetList = () => {
+import { useEffect } from "react";
+export const PetList = ({ ownPets }) => {
   return (
     <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
+      <p>
+        {ownPets.length
+          ? ownPets.map((pet) => pet.name).join(",")
+          : "No pets listed for this employee."}
+      </p>
     </aside>
   );
 };
