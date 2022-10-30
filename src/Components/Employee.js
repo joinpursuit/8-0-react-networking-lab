@@ -1,13 +1,22 @@
 import PetList from "./PetList";
 import "./Employee.css";
+import { useState } from "react";
 
-export const Employee = () => {
+
+export const Employee = ({employee}) => {
+  const {id,firstName,lastName,prefix,title,postfix} = employee;
+  const [petDisplayState, updatePetDisplay] = useState(false);
+  
+  let name = `${firstName} ${lastName}`;
+  name = prefix==""?name:`${prefix} `+name;
+  name = postfix==""?name:name+`, ${postfix}`;
+
   return (
     <article className="employee">
-      <h3>Staff Member Name</h3>
-      <h4>Staff Member Title</h4>
-      <button>Show Pets</button>
-      <PetList />
+      <h3>{name}</h3>
+      <h4>{title}</h4>
+      <button onClick={()=>{updatePetDisplay(pv=>!pv)}}>{!petDisplayState?"Show":"Hide"} Pets</button>
+      {petDisplayState?<PetList employee_id={id}/>:""}
     </article>
   );
 };
