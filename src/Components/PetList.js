@@ -9,7 +9,6 @@ export const PetList = ({ id, toggle, setToggle, cid }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data[0]);
         setPets(data);
       })
       .catch((error) => {
@@ -17,10 +16,9 @@ export const PetList = ({ id, toggle, setToggle, cid }) => {
       });
   }, []);
   function matchPet(id, currPets, toggle) {
-    console.log(id);
     let list = currPets.filter((pet) => id === pet.employeeId);
-    if (toggle !== true && cid !== id) {
-    } else if (toggle === true && cid === id) {
+    if (toggle !== true) {
+    } else if (toggle === true) {
       if (list.length > 0) {
         return (
           <ul>

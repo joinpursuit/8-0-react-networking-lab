@@ -26,7 +26,6 @@ export const Employee = () => {
     let name = `${prefix || ""} ${firstName} ${lastName}${
       postfix ? ", " + postfix : ""
     }`;
-    console.log(name);
     return (
       <article className="employee">
         <h3>{name}</h3>
@@ -43,8 +42,6 @@ export const Employee = () => {
       </article>
     );
   });
-
-  console.log(Array.isArray(currEmployees));
 
   return <>{empList}</>;
 };
