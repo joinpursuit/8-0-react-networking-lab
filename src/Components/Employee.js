@@ -1,13 +1,25 @@
-import PetList from "./PetList";
-import "./Employee.css";
+import PetList from './PetList';
+import './Employee.css';
+import { useState } from 'react';
 
-export const Employee = () => {
+export const Employee = ({ employee }) => {
+  const [show, setShow] = useState(false);
+
+  function showPet() {
+    setShow(!show);
+  }
+
   return (
     <article className="employee">
-      <h3>Staff Member Name</h3>
-      <h4>Staff Member Title</h4>
-      <button>Show Pets</button>
-      <PetList />
+      <h3>
+        {employee.prefix + ' ' + employee.firstName + ' ' + employee.lastName}
+        {employee.postfix && ', ' + employee.postfix}
+      </h3>
+      <h4>{employee.title}</h4>
+      <button onClick={() => showPet()}>
+        {show ? 'Hide Pets' : 'Show Pets '}
+      </button>
+      {show && <PetList employee={employee} />}
     </article>
   );
 };
