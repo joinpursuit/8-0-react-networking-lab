@@ -1,11 +1,13 @@
 import PetList from "./PetList";
 import "./Employee.css";
 
-export const Employee = () => {
+export const Employee = ({ employee }) => {
+  const { firstName, lastName, prefix, postfix, title } = employee;
+
   return (
     <article className="employee">
-      <h3>Staff Member Name</h3>
-      <h4>Staff Member Title</h4>
+      <h3>{`${prefix}. ${firstName} ${lastName}, ${postfix}`}</h3>
+      <h4>{title}</h4>
       <button>Show Pets</button>
       <PetList />
     </article>
