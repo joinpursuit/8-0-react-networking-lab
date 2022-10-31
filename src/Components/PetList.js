@@ -1,8 +1,17 @@
-export const PetList = () => {
+export const PetList = ({pets, EmployeeId}) => {
+  
+  
   return (
-    <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
-    </aside>
+    pets.map(({name, id, employeeId}) => {
+      return (
+        <aside className="pets-list">
+        <p>{EmployeeId === employeeId ? name : null}</p>
+      </aside>
+      )
+    })
+    // <aside className="pets-list">
+    //   <p>No pets listed for this employee.</p>
+    // </aside>
   );
 };
 
