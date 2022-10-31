@@ -25,9 +25,9 @@ useEffect(() => {
       <button onClick={toggleInfo}>{!showInfo ? "Show Pets": "Don't Show Pets"}</button>
       {showInfo ? (
                 <p>{pet.map((pets) => {
-                  if(pets.employeeId === map.id){
+                  if(pets.employeeId === map.id ){
                     return(
-                      pets.name
+                      pets.name + ", "
                     )
                   }
                 })}</p>
