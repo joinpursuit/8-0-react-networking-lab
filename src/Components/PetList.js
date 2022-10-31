@@ -17,21 +17,17 @@ export const PetList = ({ employee }) => {
   }, [employee.id]);
 
   return (
-    <>
-      {pets.length === 0 ? (
-        <p>No pets listed for this employee.</p>
-      ) : (
-        <aside className="pets-list">
-          {pets.map((pet) =>
-            pet.employeeId === employee.id ? (
-              <p>{pet.name}</p>
-            ) : (
-              <p>No pets listed for this employee.</p>
-            )
-          )}
-        </aside>
-      )}
-    </>
+    <aside className="pets-list">
+      <>
+        {pets.length === 0 ? (
+          <p>No pets listed for this employee.</p>
+        ) : (
+          pets.map((pet) =>
+            pet.employeeId === employee.id ? <p>{pet.name}</p> : null
+          )
+        )}
+      </>
+    </aside>
   );
 };
 
