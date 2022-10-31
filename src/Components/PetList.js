@@ -11,21 +11,25 @@ export const PetList = ({ worker, showPets }) => {
       });
   }
 
+  console.log(pets);
+
   useEffect(() => {
     getPets();
-  }, [showPets]);
+  }, [worker.id]);
 
   return (
     <>
-      {pets
-        ? pets.map((pet, index) => {
-            return (
-              <aside className="pets-list" key={index}>
-                <p>{pet ? pet.name : "No pets listed for this employee."}</p>
-              </aside>
-            );
-          })
-        : null}
+      {pets.length === 0 ? (
+        <p>No pets listed for this employee.</p>
+      ) : (
+        pets.map((pet, index) => {
+          return (
+            <aside className="pets-list" key={index}>
+              <p>{pet.name}</p>
+            </aside>
+          );
+        })
+      )}
     </>
   );
 };
