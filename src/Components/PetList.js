@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const PetList = ({ id, toggle, cid }) => {
-  let empList;
+export const PetList = ({ id, toggle, setToggle, cid }) => {
   const [currPets, setPets] = useState([]);
 
   useEffect(() => {
@@ -20,18 +19,19 @@ export const PetList = ({ id, toggle, cid }) => {
   function matchPet(id, currPets, toggle) {
     console.log(id);
     let list = currPets.filter((pet) => id === pet.employeeId);
-    if (toggle === false && cid !== id) {
-      return null;
-    } else if (list.length > 0) {
-      return (
-        <ul>
-          {list.map((pet) => (
-            <li>{pet.name}</li>
-          ))}
-        </ul>
-      );
-    } else if (list.length === 0) {
-      return <p>No pets listed for this employee.</p>;
+    if (toggle !== true && cid !== id) {
+    } else if (toggle === true && cid === id) {
+      if (list.length > 0) {
+        return (
+          <ul>
+            {list.map((pet) => (
+              <li>{pet.name}</li>
+            ))}
+          </ul>
+        );
+      } else if (list.length === 0) {
+        return <p>No pets listed for this employee.</p>;
+      }
     }
   }
   return <aside className="pets-list">{matchPet(id, currPets, toggle)}</aside>;

@@ -14,7 +14,6 @@ export const Employee = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data[0]);
         setEmployees(data);
       })
       .catch((error) => {
@@ -40,7 +39,7 @@ export const Employee = () => {
         >
           Show Pets
         </button>
-        <PetList id={id} toggle={toggle} cid={cid} />
+        <PetList id={id} toggle={toggle} setToggle={setToggle} cid={cid} />
       </article>
     );
   });
