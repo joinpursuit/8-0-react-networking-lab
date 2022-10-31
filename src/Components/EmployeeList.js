@@ -8,7 +8,6 @@ export const EmployeeList = () => {
   const [show, setShow] = useState(false);
   const [employee, setEmployee] = useState([]);
   //! fecth API
-
   function EmployeeList() {
     fetch("https://vet-api-1.onrender.com/api/employees")
       .then((response) => response.json())
@@ -30,7 +29,7 @@ export const EmployeeList = () => {
     <main>
       <h2>All Staff</h2>
       <section className="employee-list">
-    {employee.map((el)=>
+    {employee && employee.map((el)=>
         <Employee el={el} id={el.id}/>
       )}
       </section>

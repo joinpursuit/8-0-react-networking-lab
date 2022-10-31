@@ -1,8 +1,8 @@
 import PetList from "./PetList";
 import "./Employee.css";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
-export const Employee = ({ el }) => {
+export const Employee = ({ el, pets }) => {
   const [show, setShow] = useState(false);
 
   // fecth API
@@ -20,7 +20,7 @@ export const Employee = ({ el }) => {
       >
         {show ? "Show Pets" : "Hide Pets"}
       </button>
-      {show ? <PetList show={show} employeeID={el.id} /> : null}
+      {show ? <PetList show={show} employeeID={el.id} />: null}
 
       {/* <PetList show={show} employeeID={el.id} /> */}
     </article>
