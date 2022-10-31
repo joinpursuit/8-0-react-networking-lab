@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 
-export const PetList = ({map}) => {
+export const PetList = ({map, employee}) => {
 
   const [pet, setPet] = useState([])
   const [showInfo, setShowInfo] = useState(false)
@@ -28,6 +28,11 @@ useEffect(() => {
                   if(pets.employeeId === map.id ){
                     return(
                       pets.name + ", "
+                    )
+                  }
+                  if(!employee.includes(pets.employeeId)){
+                    return(
+                      "No pets are listed"
                     )
                   }
                 })}</p>

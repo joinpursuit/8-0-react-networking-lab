@@ -22,9 +22,11 @@ export const Employee = () => {
      {employee.map((map) => {
        return (
         <article className="employee">
-        <h3>{map.prefix} {map.firstName} {map.lastName} {map.postfix}</h3>
+        <h3>{map.prefix} {map.firstName} {map.lastName}, {map.postfix}</h3>
         <h4>{map.title}</h4>
-        <PetList map={map}/>
+        <PetList 
+        map={map}
+        employee={employee}/>
       </article>
        )
      })}
