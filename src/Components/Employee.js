@@ -27,7 +27,7 @@ export const Employee = () => {
       postfix ? ", " + postfix : ""
     }`;
     return (
-      <article className="employee">
+      <article key={id} className="employee">
         <h3>{name}</h3>
         <h4>{title || ""}</h4>
         <button

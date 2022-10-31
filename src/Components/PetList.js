@@ -15,23 +15,24 @@ export const PetList = ({ id, toggle, setToggle, cid }) => {
         console.error("Error:", error);
       });
   }, []);
+
   function matchPet(id, currPets, toggle) {
     let list = currPets.filter((pet) => id === pet.employeeId);
-    if (toggle !== true) {
-    } else if (toggle === true) {
-      if (list.length > 0) {
-        return (
-          <ul>
-            {list.map((pet) => (
-              <li>{pet.name}</li>
-            ))}
-          </ul>
-        );
-      } else if (list.length === 0) {
-        return <p>No pets listed for this employee.</p>;
-      }
+    // if (toggle !== true && cid !== id) {
+    // } else if (toggle === true && cid === id) {
+    if (list.length > 0) {
+      return (
+        <ul>
+          {list.map((pet) => (
+            <li key={pet.id}>{pet.name}</li>
+          ))}
+        </ul>
+      );
+    } else if (list.length === 0) {
+      return <p>No pets listed for this employee.</p>;
     }
   }
+  // }
   return <aside className="pets-list">{matchPet(id, currPets, toggle)}</aside>;
 };
 
