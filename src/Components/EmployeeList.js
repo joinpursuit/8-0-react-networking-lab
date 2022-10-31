@@ -22,8 +22,6 @@ export const EmployeeList = () => {
     getEmployees()
   }, [])
 
-  console.log(employeeInfo)
-
 
 
   return (
