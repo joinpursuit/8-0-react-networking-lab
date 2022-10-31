@@ -1,11 +1,14 @@
-export const PetList = ({pets, EmployeeId}) => {
-  
+export const PetList = ({pets, doctorId}) => {
+  const employeePets = pets.filter(({employeeId}) => 
+    doctorId === employeeId
+  )
   
   return (
-    pets.map(({name, id, employeeId}) => {
+   
+    employeePets.map(({name}) => {
       return (
         <aside className="pets-list">
-        <p>{EmployeeId === employeeId ? name : null}</p>
+        <p>{name}</p>
       </aside>
       )
     })

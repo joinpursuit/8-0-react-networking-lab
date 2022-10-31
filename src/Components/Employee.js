@@ -3,12 +3,15 @@ import PetList from "./PetList";
 import "./Employee.css";
 
 export const Employee = ({employees,pets}) => {
-// Declare state for on click
+// Declare state for on click toggle
 const [clicked, setClicked] = useState(false)
+
 // function for handling onClick
-function handleClick() {
+function handleClick(e) {
   setClicked(!clicked)
-}
+  }
+
+
   return (
     
       employees.map(({firstName, lastName, prefix, postfix, title, id}) => {
@@ -19,11 +22,13 @@ function handleClick() {
             <h4>{title}</h4>
             
             <button
-            onClick={() => {handleClick()}}>{clicked ? `Hide Pets`: `Show Pets`}</button>
+            id = {id}
+            onClick={(event) => {handleClick(event)}}>Show Pets</button>
             
             {clicked && <PetList
             pets ={pets} 
-            EmployeeId = {id}/>}
+            doctorId = {id}
+            />}
           </article>
         )
       })
