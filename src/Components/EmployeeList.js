@@ -3,7 +3,7 @@ import Employee from './Employee';
 import './EmployeeList.css';
 
 export const EmployeeList = () => {
-  const [employees, setEmployees] = useState({});
+  const [employees, setEmployees] = useState([]);
   function fetchEmployees() {
     fetch('https://vet-api-1.onrender.com/api/employees')
       .then((response) => response.json())
