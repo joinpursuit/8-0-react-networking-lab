@@ -7,9 +7,20 @@ export const EmployeeList = ({employees, pets}) => {
     <main>
       <h2>All Staff</h2>
       <section className="employee-list">
-        <Employee
-        employees = {employees}
-        pets = {pets} />
+        
+        {
+          employees.map(({firstName, lastName, prefix, postfix, title, id}) => 
+            <Employee
+            firstName ={firstName}
+            lastName = {lastName}
+            prefix = {prefix}
+            postfix = {postfix}
+            title = {title}
+            id = {id} 
+            pets = {pets}/>
+          )
+        }
+  
       </section>
     </main>
   );

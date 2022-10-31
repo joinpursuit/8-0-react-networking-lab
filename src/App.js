@@ -34,7 +34,8 @@ function App () {
       <NavBar />
       <EmployeeList
       employees = {employees}
-      pets = {pets} />
+      pets = {pets} 
+      />
     </>
   );
 };
