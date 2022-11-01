@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const PetList = ({ employee, index }) => {
+export const PetList = ({ employee }) => {
 
   const [showPet, setShowPet] = useState([])
 

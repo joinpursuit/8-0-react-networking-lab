@@ -1,6 +1,6 @@
 import PetList from "./PetList";
 import "./Employee.css";
-import { useState, useEffect } from "react";
+import { useState, s } from "react";
 
 export const Employee = ({ employee, index }) => {
   const [showData, setShowData]= useState(false)
@@ -24,5 +24,6 @@ export const Employee = ({ employee, index }) => {
     </article>
   );
 };
+
 
 export default Employee;

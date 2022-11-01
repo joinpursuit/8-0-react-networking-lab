@@ -2,9 +2,9 @@ import React from "react";
 import NavBar from "./Components/NavBar";
 import EmployeeList from "./Components/EmployeeList";
 
-function App (id, employees, pets) {
+function App () {
 
-console.log(id)
+
 
   return (
     <>
