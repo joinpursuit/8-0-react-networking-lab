@@ -9,6 +9,10 @@
   margin: 0;
 }
 
+#hidden {
+  display: none;
+}
+
 .employee h4 {
   font-weight: 200;
 }
