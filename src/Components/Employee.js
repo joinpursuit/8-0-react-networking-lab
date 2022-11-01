@@ -8,7 +8,6 @@ export const Employee = ({ employee }) => {
   function showPetList() {
     setpetsShows(!showpets)
   }
-  //  (!showpets ? "show Pets" : "hide Pets")
 
   return (
     <article className="employee">
