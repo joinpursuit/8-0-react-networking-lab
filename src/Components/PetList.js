@@ -2,7 +2,7 @@ export const PetList = ({ pets, id }) => {
   const petsList = pets
     .filter((pet) => pet.employeeId === id)
     .map((pet) => pet.name)
-    .join(",");
+    .join(", ");
 
   return (
     <aside className="pets-list">
