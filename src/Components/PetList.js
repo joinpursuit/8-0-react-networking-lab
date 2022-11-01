@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
-import Employee from "./Employee"
+
 export const PetList = ({ employee }) => {
   const [pets, setPet] = useState([])
 
   function petsFetch() {
-    fetch("https://vet-api-1.onrender.com/api/pets?employeeId=vlJtFOU")
+    fetch("https://vet-api-1.onrender.com/api/pets")
       .then((response) => response.json())
       .then((json) => {
         setPet(json)
@@ -15,7 +15,7 @@ export const PetList = ({ employee }) => {
   }
   useEffect(() => {
     petsFetch()
-  }, [])
+  }, [employee.id])
 
   return (
     <aside className="pets-list">
