@@ -1,7 +1,7 @@
 import PetList from "./PetList"
 import "./Employee.css"
 import { useState } from "react"
-export const Employee = ({ pets, employee }) => {
+export const Employee = ({ employee }) => {
   const [showpets, setpetsShows] = useState(false)
 
   function showPetList() {
