@@ -27,3 +27,11 @@
   color: white;
   transition: 0.3s all;
 }
+
+.card{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+   grid-column-gap: 50px; 
+  grid-template-rows: repeat(2, 1fr);
+  grid-row-gap: 50px;
+}

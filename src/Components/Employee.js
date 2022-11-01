@@ -18,7 +18,7 @@ export const Employee = () => {
 
 
   return (
-   <section>
+   <section className="card">
      {employee.map((map) => {
        return (
         <article className="employee">
