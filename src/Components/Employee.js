@@ -6,7 +6,6 @@ export const Employee = ({ el, pets }) => {
   const [show, setShow] = useState(false);
 
   // fecth API
-
   return (
     <article className="employee">
       <h3>

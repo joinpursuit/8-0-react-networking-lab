@@ -9,25 +9,22 @@ export const PetList = ({ employeeID }) => {
         setPets(petsList);
       })
       .catch((error) => {
-        console.log("Fetching Employees");
+        console.log(error, "Fetching Employees");
       });
   }
 
   useEffect(() => {
-    // console.log("Effect Here");
     petList();
   }, [employeeID]);
 
   return (
-
-
-
-          <aside className="pets-list">
-{
-  pets.length>0 ? pets.map(pet=>(pet.name)+", "): <p>No pets listed for this employee.</p>
-}
-          </aside>
-
+    <aside className="pets-list">
+      {pets.length > 0 ? (
+        pets.map((pet) => pet.name + ", ")
+      ) : (
+        <p>No pets listed for this employee.</p>
+      )}
+    </aside>
   );
 };
 

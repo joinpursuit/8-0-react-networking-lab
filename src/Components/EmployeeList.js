@@ -5,7 +5,6 @@ import "./EmployeeList.css";
 import { useState, useEffect } from "react";
 
 export const EmployeeList = () => {
-  const [show, setShow] = useState(false);
   const [employee, setEmployee] = useState([]);
   //! fecth API
   function EmployeeList() {
@@ -25,16 +24,12 @@ export const EmployeeList = () => {
   }, [employee.id]);
 
   return (
- 
     <main>
       <h2>All Staff</h2>
       <section className="employee-list">
-    {employee && employee.map((el)=>
-        <Employee el={el} id={el.id}/>
-      )}
+        {employee && employee.map((el) => <Employee el={el} id={el.id} />)}
       </section>
     </main>
-
   );
 };
 
