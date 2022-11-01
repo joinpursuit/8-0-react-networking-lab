@@ -22,7 +22,7 @@ export const Employee = ({ employee, pets }) => {
       {formatName(employee)}
       <h4>{employee.title}</h4>
       <button onClick={() => setShowPets(!showPets)}>Show Pets</button>
-      {showPets && <PetList pets={pets} id={employee.id} />}
+      {showPets && <PetList pets={pets} employee={employee} />}
     </article>
   );
 };

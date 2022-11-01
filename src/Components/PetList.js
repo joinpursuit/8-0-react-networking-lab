@@ -1,6 +1,6 @@
-export const PetList = ({ pets, id }) => {
+export const PetList = ({ pets, employee }) => {
   const petsList = pets
-    .filter((pet) => pet.employeeId === id)
+    .filter((pet) => pet.employeeId === employee.id)
     .map((pet) => pet.name)
     .join(", ");
 
