@@ -2,7 +2,7 @@ import { useState } from "react";
 import PetList from "./PetList";
 import "./Employee.css";
 
-export const Employee = ({firstName, lastName, prefix, postfix, title, id, pets}) => {
+export const Employee = ({firstName, lastName, prefix, postfix, title, id}) => {
 // Declare state for on click toggle
 const [clicked, setClicked] = useState(false)
 
@@ -22,7 +22,6 @@ function handleClick() {
       onClick={() => {handleClick()}}>{!clicked ? `Show Pets` : `Hide Pets`}</button>
 
       {clicked && <PetList
-      pets = {pets}
       id = {id} 
       />}
      

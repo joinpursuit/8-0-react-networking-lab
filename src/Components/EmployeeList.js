@@ -2,7 +2,7 @@ import React from "react";
 import Employee from "./Employee";
 import "./EmployeeList.css";
 
-export const EmployeeList = ({employees, pets}) => {
+export const EmployeeList = ({employees}) => {
   return (
     <main>
       <h2>All Staff</h2>
@@ -18,7 +18,7 @@ export const EmployeeList = ({employees, pets}) => {
             postfix = {postfix}
             title = {title}
             id = {id} 
-            pets = {pets}/>
+            />
           )
         }
   
