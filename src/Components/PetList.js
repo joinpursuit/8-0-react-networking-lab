@@ -22,7 +22,7 @@ export const PetList = ({ employee }) => {
       {pets ? (
         pets.map((pet) => pet.employeeId === employee.id && <> {pet.name}, </>)
       ) : (
-        <article>No pets listed for this employee.</article>
+        <p>No pets listed for this employee.</p>
       )}
     </aside>
   )
