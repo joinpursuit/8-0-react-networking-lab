@@ -2,12 +2,19 @@ import React from "react";
 import Employee from "./Employee";
 import "./EmployeeList.css";
 
-export const EmployeeList = () => {
+export const EmployeeList = ({empData,petData}) => {
+console.log(empData)
+
+
+  
   return (
     <main>
       <h2>All Staff</h2>
       <section className="employee-list">
-        <Employee />
+        <Employee 
+        empData={empData}
+        petData={petData}
+        />
       </section>
     </main>
   );
