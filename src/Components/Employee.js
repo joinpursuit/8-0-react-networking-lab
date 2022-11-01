@@ -21,12 +21,11 @@ export const Employee = () => {
    <section className="card">
      {employee.map((map) => {
        return (
-        <article className="employee">
+        <article key={map.id} className="employee">
         <h3>{map.postfix ? map.prefix + " " + map.firstName + " " + map.lastName + ", "  + map.postfix:  map.prefix + " " + map.firstName + " " + map.lastName}</h3>
         <h4>{map.title}</h4>
         <PetList 
-        map={map}
-        employee={employee}/>
+        map={map}/>
       </article>
        )
      })}

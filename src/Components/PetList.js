@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 
-export const PetList = ({map, employee}) => {
+export const PetList = ({map}) => {
 
   const [pet, setPet] = useState([])
   const [showInfo, setShowInfo] = useState(false)
