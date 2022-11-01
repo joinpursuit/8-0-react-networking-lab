@@ -11,6 +11,7 @@ export const EmployeeList = ({employees, pets}) => {
         {
           employees.map(({firstName, lastName, prefix, postfix, title, id}) => 
             <Employee
+            key = {id}
             firstName ={firstName}
             lastName = {lastName}
             prefix = {prefix}

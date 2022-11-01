@@ -15,17 +15,17 @@ function handleClick() {
     
     <article className="employee">
       
-      <h3>{prefix? prefix : null} {firstName} {lastName} {postfix ? `, ${postfix}` : null}</h3>
+      <h3>{prefix? prefix : null} {firstName} {lastName}{postfix ? `, ${postfix}` : null}</h3>
       <h4>{title}</h4>
       
       <button
-      onClick={() => {handleClick()}}>Show Pets</button>
+      onClick={() => {handleClick()}}>{!clicked ? `Show Pets` : `Hide Pets`}</button>
 
-      {clicked &&<PetList
+      {clicked && <PetList
       pets = {pets}
       id = {id} 
       />}
-
+     
     </article>
   );
 };

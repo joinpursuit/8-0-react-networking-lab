@@ -6,10 +6,9 @@ export const PetList = ({pets,id}) => {
   const names = filteredPets.map(({name}) => name) 
     return (
       <aside className="pets-list">
-        
         {
         filteredPets.length ? <p>{names.join(`, `)}</p> :
-          <p>No pets listed for this employee.</p>
+        <p>No pets listed for this employee.</p>
         }
     </aside>
     )
