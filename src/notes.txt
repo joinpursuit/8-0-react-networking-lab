@@ -1,0 +1,50 @@
+/* .employee-card{
+  grid-column: 1/2;
+
+} */
+
+/* Resources
+Base Url */
+/* https://vet-api-1.onrender.com/ */
+/* Employees
+/api/employees ===> /api/employees
+Pets:  /api/pets  ==> https://vet-api-1.onrender.com/api/pets */
+/* Request Path:
+
+/api/pets?employeeId=vlJtFOU
+Response Body:
+
+[
+  {
+    id: "fiQ_EZE",
+    name: "Alanis",
+    kind: "Dog",
+    breed: "Retriever, Labrador",
+    employeeId: "vlJtFOU",
+  },
+  // ...
+];
+In the example above, the employee ID of vlJtFOU was included as part of the path. Only those pets with an employeeId that is equal to that ID are then returned. */
+
+/* key = {employees.id}
+prefix = {prefix}
+firstName = {firstName}
+lastName = {lastName}
+title  = {title}
+pets={pets} */
+
+
+{/* {
+
+        pets.length=== 0 ? (<p>No pets listed for this employee.</p>)
+        :
+        (pets.map((pet) => { 
+          return  
+          pet.employeeId === employees.id
+          
+          ? <p>{pet.name}</p>
+
+          : null
+        }
+        ))
+      } */}

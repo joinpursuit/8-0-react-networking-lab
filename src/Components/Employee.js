@@ -1,13 +1,29 @@
 import PetList from "./PetList";
 import "./Employee.css";
+import { useState } from "react";
 
-export const Employee = () => {
+
+export const Employee = ({employee, pets}) => {
+
+
+  const[toggle, setToggle] = useState(false)
+
+  
+  function handleOnclick(e){
+    setToggle(!toggle)
+  }
+ 
   return (
     <article className="employee">
-      <h3>Staff Member Name</h3>
-      <h4>Staff Member Title</h4>
-      <button>Show Pets</button>
-      <PetList />
+      <h3>{employee.prefix} {employee.firstName} {employee.lastName}{employee.postfix&&", " + employee.postfix}</h3>
+      <h4>{employee.title}</h4>
+
+      <article><button  onClick={handleOnclick} >Show Pets</button></article>
+
+     { 
+     toggle && <PetList employee={employee} pets = {pets}/>
+     }
+
     </article>
   );
 };
