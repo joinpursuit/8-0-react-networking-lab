@@ -15,7 +15,7 @@ export const PetList = ({ employee }) => {
   }
   useEffect(() => {
     petsFetch()
-  }, [])
+  }, [employee.id])
 
   return (
     <aside className="pets-list">
