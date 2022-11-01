@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 export const EmployeeList = () => {
   const [employee, setEmployee] = useState([]);
-  //! fecth API
+  //* fecth API
   function EmployeeList() {
     fetch("https://vet-api-1.onrender.com/api/employees")
       .then((response) => response.json())
@@ -15,7 +15,7 @@ export const EmployeeList = () => {
         console.log(list);
       })
       .catch((error) => {
-        console.log("Fetching Employees");
+        console.log(error, "Fetching Employees");
       });
   }
   useEffect(() => {

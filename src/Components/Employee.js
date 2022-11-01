@@ -1,11 +1,11 @@
 import PetList from "./PetList";
 import "./Employee.css";
-import { useState} from "react";
+import { useState } from "react";
 
-export const Employee = ({ el, pets }) => {
+export const Employee = ({ el }) => {
   const [show, setShow] = useState(false);
 
-  // fecth API
+  //* fecth API
   return (
     <article className="employee">
       <h3>
@@ -19,9 +19,7 @@ export const Employee = ({ el, pets }) => {
       >
         {show ? "Show Pets" : "Hide Pets"}
       </button>
-      {show ? <PetList show={show} employeeID={el.id} />: null}
-
-      {/* <PetList show={show} employeeID={el.id} /> */}
+      {show ? <PetList show={show} employeeID={el.id} /> : null}
     </article>
   );
 };
