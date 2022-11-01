@@ -17,8 +17,10 @@ export const Employee = ({ pets, employee, key }) => {
       {employee.title}
       <br />
       <br />
-      <button onClick={() => showPet()}>Show Pets</button>
-      <PetList employee={employee} />
+      <button onClick={() => showPet()}>
+        {!showpets ? "show Pets" : "hide Pets"}
+      </button>
+      {showpets ? <PetList employee={employee} /> : null}
     </article>
   )
 }
