@@ -11,10 +11,10 @@ export const Employee = ({prefix, postfix, firstName, lastName, title, id}) => {
   }
     return (
       <article className="employee">
-      <h3>{prefix ? prefix : null} {firstName} {lastName} {postfix ? `, ${postfix}` : null}</h3>
+      <h3>{prefix? prefix : null} {firstName} {lastName}{postfix ? `, ${postfix}` : null}</h3>
       <h4>{title}</h4>
-      <button onClick={toggle()}>Show Pets</button>
-      {setHide ? <PetList id={id}/>: null}
+      <button onClick={() => toggle()}>Show Pets</button>
+      {setHide ? <PetList id={id}/>: 'null'}
     </article>
   );
 };

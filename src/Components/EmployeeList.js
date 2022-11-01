@@ -7,6 +7,7 @@ export const EmployeeList = ({employees}) => {
     <main>
       <h2>All Staff</h2>
       <section className="employee-list">
+
       {employees.map(({firstName, lastName, prefix, postfix, title, id}) => 
             <Employee
             key = {id}

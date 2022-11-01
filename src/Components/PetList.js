@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export const PetList = ({id}) => {
   const [pets, setPets] = useState([])
+  let filteredPets = pets.filter(pet => pet.employeeId === id).map(pet => `${pet.name}, `)
 
   useEffect(()=>{
     fetch('https://vet-api-1.onrender.com/api/pets'
@@ -11,10 +12,9 @@ export const PetList = ({id}) => {
     .then((res) => setPets(res)) 
   }, [])
   return (
-    <aside className="pets-list">
-     {setPets.length ? <p>
-         {pets.filter((pet) => {return pet.employeeId === id}).map((pet)=> `${pet.name}, `)}</p>: <p>No pets listed for this employee</p>}
-    </aside>
+  <aside className="pets-list">
+    <p>{filteredPets.length ? filteredPets :'No pets listed.' }</p>
+  </aside>
   );
 };
 
