@@ -24,18 +24,21 @@ useEffect(() => {
     <aside className="pets-list">
       <button onClick={toggleInfo}>{!showInfo ? "Show Pets": "Don't Show Pets"}</button>
       {showInfo ? (
-                <p>{pet.map((pets) => {
+                <p>{pet.map((pets, i) => {
                   if(pets.employeeId === map.id ){
                     return(
                       pets.name + ", "
                     )
                   }
-                  if(!employee.includes(pets.employeeId)){
-                    return(
-                      "No pets are listed"
-                    )
+                  if(i === 0){
+                    if(pets.employeeId !== map.id){
+                      return(
+                        "No pets are listed for this employee."
+                      )
+                    }
                   }
-                })}</p>
+                  }
+                )}</p>
 
             ): null}
     </aside>
