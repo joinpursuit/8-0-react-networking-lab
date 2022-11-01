@@ -9,7 +9,7 @@ export const EmployeeList = ({ employees }) => {
       <section className="employee-list">
         {employees &&
           employees.map((employee) => {
-            return <Employee key={employee.id} employee={employee} />
+            return <Employee employee={employee} />
           })}
       </section>
     </main>
