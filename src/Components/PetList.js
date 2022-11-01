@@ -33,7 +33,7 @@ useEffect(() => {
                   if(i === 0){
                     if(pets.employeeId !== map.id){
                       return(
-                        "No pets are listed for this employee."
+                        "No pets listed for this employee."
                       )
                     }
                   }
