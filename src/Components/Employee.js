@@ -1,10 +1,10 @@
 import PetList from "./PetList"
 import "./Employee.css"
 import { useState } from "react"
-export const Employee = ({ pets, employee, key }) => {
+export const Employee = ({ pets, employee }) => {
   const [showpets, setpetsShows] = useState(false)
 
-  function showPet() {
+  function showPetList() {
     setpetsShows(!showpets)
   }
 
@@ -12,15 +12,14 @@ export const Employee = ({ pets, employee, key }) => {
     <article className="employee">
       <h3>Staff Member Name</h3>
       {employee.prefix + " " + employee.firstName + " " + employee.lastName}
-      {" " + employee.postfix}
+      {/* {" " + employee.postfix} */}
       <h4>Staff Member Title</h4>
       {employee.title}
-      <br />
-      <br />
-      <button onClick={() => showPet()}>
+
+      <button onClick={() => showPetList()}>
         {!showpets ? "show Pets" : "hide Pets"}
       </button>
-      {showpets ? <PetList employee={employee} /> : null}
+      {showpets && <PetList employee={employee} />}
     </article>
   )
 }
