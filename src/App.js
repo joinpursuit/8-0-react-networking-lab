@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <EmployeeList employees={employees} pets={pets} />
+      <EmployeeList employees={employees} />
     </>
   )
 }

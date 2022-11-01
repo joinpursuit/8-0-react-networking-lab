@@ -2,17 +2,16 @@ import React from "react"
 import Employee from "./Employee"
 import "./EmployeeList.css"
 
-export const EmployeeList = ({ employees, pets }) => {
+export const EmployeeList = ({ employees }) => {
   return (
     <main>
       <h2>All Staff</h2>
-      {employees.map((employee) => {
-        return (
-          <section className="employee-list">
-            <Employee key={employee.id} employee={employee} pets={pets} />
-          </section>
-        )
-      })}
+      <section className="employee-list">
+        {employees &&
+          employees.map((employee) => {
+            return <Employee key={employee.id} employee={employee} />
+          })}
+      </section>
     </main>
   )
 }
