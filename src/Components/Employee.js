@@ -17,7 +17,7 @@ export const Employee = ({ employee }) => {
         {employee.postfix && ", " + employee.postfix}
       </h3>
       <h4>{employee.title}</h4>
-      <button onClick={showPetList}></button>
+      <button onClick={showPetList}>Show Pets</button>
       {showpets && <PetList employee={employee} />}
     </article>
   )
