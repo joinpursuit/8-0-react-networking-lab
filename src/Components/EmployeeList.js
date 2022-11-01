@@ -8,7 +8,7 @@ export const EmployeeList = ({ employees, pets }) => {
       <h2>All Staff</h2>
       <section className="employee-list">
         {employees.map((employee) => (
-          <Employee employee={employee} pets={pets} />
+          <Employee key={employee.id} employee={employee} pets={pets} />
         ))}
       </section>
     </main>
