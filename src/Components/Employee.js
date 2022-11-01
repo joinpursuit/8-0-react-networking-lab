@@ -12,7 +12,7 @@ export const Employee = ({ pets, employee }) => {
     <article className="employee">
       <h3>
         {employee.prefix + " " + employee.firstName + " " + employee.lastName}
-        {/* {" " + employee.postfix} */}
+        {employee.postfix && ", " + employee.postfix}
       </h3>
       <h4>{employee.title}</h4>
       <button onClick={() => showPetList()}>
