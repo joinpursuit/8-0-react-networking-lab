@@ -5,6 +5,7 @@ import EmployeeList from "./Components/EmployeeList";
 
 function App() {
   const [employees, setEmployees] = useState([]);
+  const [pets, setPets] = useState([]);
 
   useEffect(() => {
     fetch("https://vet-api-1.onrender.com/api/employees")
@@ -13,10 +14,17 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
+  useEffect(() => {
+    fetch("https://vet-api-1.onrender.com/api/pets")
+      .then((response) => response.json())
+      .then((response) => setPets(response))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <>
       <NavBar />
-      <EmployeeList employees={employees} />
+      <EmployeeList employees={employees} pets={pets} />
     </>
   );
 }
