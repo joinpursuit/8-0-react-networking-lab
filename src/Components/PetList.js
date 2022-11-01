@@ -15,14 +15,15 @@ export const PetList = ({ employee }) => {
   }
   useEffect(() => {
     petsFetch()
-  }, [employee.id])
+  }, [])
 
   return (
     <aside className="pets-list">
-      {pets &&
-        pets.map((pet) => pet.employeeId === employee.id && <> {pet.name}, </>)}
-
-      {pets.length === 0 && <p>No pets listed for this employee.</p>}
+      {pets ? (
+        pets.map((pet) => pet.employeeId === employee.id && <> {pet.name}, </>)
+      ) : (
+        <article>No pets listed for this employee.</article>
+      )}
     </aside>
   )
 }
