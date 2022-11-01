@@ -12,7 +12,7 @@ export const Employee = ({ pets, employee, key }) => {
     <article className="employee">
       <h3>Staff Member Name</h3>
       {employee.prefix + " " + employee.firstName + " " + employee.lastName}
-      {employee.postfix && employee.firstName + employee.lastName}
+      {" " + employee.postfix}
       <h4>Staff Member Title</h4>
       {employee.title}
       <br />
