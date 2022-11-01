@@ -19,12 +19,13 @@ export const PetList = ({ employee }) => {
 
   return (
     <aside className="pets-list">
-      {pets.length < 0 ? (
-        <p>No pets listed for this employee.</p>
-      ) : (
-        pets.map((pet) => 
-          pet.employeeId === employee.id ?
-         <>{pet.name}</>)
+      <>
+        {pets.length < 0 ? (
+          <p>No pets listed for this employee.</p>
+        ) : (
+          pets.map((pet) => pet.employeeId === employee.id && <p>{pet.name}</p>)
+        )}
+      </>
     </aside>
   )
 }
