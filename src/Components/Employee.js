@@ -10,11 +10,11 @@ export const Employee = ({ pets, employee }) => {
 
   return (
     <article className="employee">
-      <h3>Staff Member Name</h3>
-      {employee.prefix + " " + employee.firstName + " " + employee.lastName}
-      {/* {" " + employee.postfix} */}
+      <h3>
+        {employee.prefix + " " + employee.firstName + " " + employee.lastName}
+        {/* {" " + employee.postfix} */}
+      </h3>
       <h4>{employee.title}</h4>
-
       <button onClick={() => showPetList()}>
         {!showpets ? "show Pets" : "hide Pets"}
       </button>
