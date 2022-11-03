@@ -1,7 +1,10 @@
-export const PetList = () => {
+export const PetList = ({pets}) => {
+
+  const found = pets.map((pet) => pet.name)
+
   return (
     <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
+      <p> {found.length ? found.join(", ") : "No pets listed"}</p>
     </aside>
   );
 };
