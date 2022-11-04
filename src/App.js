@@ -4,15 +4,14 @@ import NavBar from "./Components/NavBar";
 import EmployeeList from "./Components/EmployeeList";
 
 function App () {
-
+  // State variable
   const [employees, setEmployees] = useState([])
 
+  // API variables
   const BASE_URL = "https://vet-api-1.onrender.com"
-  const pets = "/api/pets"
-  const owners =  "/api/owners"
-  const owners_pets = "/api/owners_pets"
   const employee = "/api/employees"
 
+  // Function to make a fetch call
   function getEmployees() {
     fetch(BASE_URL + employee)
       .then((res) => res.json())
@@ -24,9 +23,10 @@ function App () {
       })
   }
 
-useEffect(() => {
-  getEmployees()
-}, [])
+  // useEffect on page load
+  useEffect(() => {
+    getEmployees()
+  }, [])
 
   return (
     <>

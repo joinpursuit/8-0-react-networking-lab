@@ -4,12 +4,14 @@ import "./Employee.css";
 
 export const Employee = ({employee}) => {
   
+  // Declaring variables for parts of name from employee object
   const prefix = employee.prefix
   const first = employee.firstName
   const last = employee.lastName
   const postfix = employee.postfix
   const title = employee.title
 
+  // Rendering for each employee with ternary for correct display name with comma before postfix
   return (
     <article className="employee">
       {
