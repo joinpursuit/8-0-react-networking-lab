@@ -1,13 +1,33 @@
 import PetList from "./PetList";
 import "./Employee.css";
+import { useEffect, useState } from "react";
 
-export const Employee = () => {
+const URL = "https://vet-resource-api-9-2.herokuapp.com/api/pets";
+
+export const Employee = ({ employee }) => {
+  const [petArr, setPetArr] = useState();
+  const [buttonClicked, setButtonClicked] = useState(false);
+  function getPets() {
+    fetch(`${URL}?employeeId=${employee.id}`)
+      .then((response) => response.json())
+      .then(setPetArr);
+  }
+
+  useEffect(() => {
+    if (petArr) {
+      setButtonClicked(true);
+    }
+  }, [petArr]);
+
   return (
     <article className="employee">
-      <h3>Staff Member Name</h3>
-      <h4>Staff Member Title</h4>
-      <button>Show Pets</button>
-      <PetList />
+      <h3>
+        {employee.prefix ? employee.prefix : ""} {employee.firstName}{" "}
+        {employee.lastName}{employee.postfix ? `, ${employee.postfix}` : ""}
+      </h3>
+      <h4>{employee.title}</h4>
+      <button onClick={getPets}>Show Pets</button>
+      {buttonClicked ? <PetList petArr={petArr} /> : null}
     </article>
   );
 };
