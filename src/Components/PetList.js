@@ -1,7 +1,11 @@
-export const PetList = () => {
+export const PetList = ({ pets }) => {
   return (
     <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
+      {pets.length === 0 ? (
+        <p>No pets listed</p>
+      ) : (
+        <p>{pets.join(", ")}</p>
+      )}
     </aside>
   );
 };
