@@ -3,20 +3,21 @@ import "./Employee.css";
 import { useState, useEffect } from "react";
 
 export const Employee = ({ employee, pets }) => {
-  const [employeesPets, setEmployeesPets] = useState([]);
+  // const [employeesPets, setEmployeesPets] = useState([]);
   const [clicked, setClicked] = useState(false);
+  const employeesPets = pets.filter((pet) => pet.employeeId === employee.id);
 
   function handleOnClick() {
     setClicked(!clicked);
   }
 
-  function getEmployeesPets() {
-    setEmployeesPets(pets.filter((pet) => pet.employeeId === employee.id));
-  }
+  // function getEmployeesPets() {
+  //   setEmployeesPets(pets.filter((pet) => pet.employeeId === employee.id));
+  // }
 
-  useEffect(() => {
-    getEmployeesPets();
-  }, []);
+  // useEffect(() => {
+  //   getEmployeesPets();
+  // }, []);
 
   return (
     <article className="employee">
