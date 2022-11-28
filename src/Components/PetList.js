@@ -3,7 +3,7 @@ export const PetList = ({ employeesPets }) => {
     <aside className="pets">
       <ul>
         {employeesPets.length > 0 ? (
-          employeesPets.map((pet) => <li>{pet.name}</li>)
+          employeesPets.map((pet) => <li key={pet.id}>{pet.name}</li>)
         ) : (
           <li>No pets listed for this employee.</li>
         )}
