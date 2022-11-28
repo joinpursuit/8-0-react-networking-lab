@@ -1,22 +1,25 @@
 import PetList from "./PetList";
 import "./Employee.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const Employee = ({ employee, pets }) => {
-  const [employeesPets, setEmployeesPets] = useState([]);
   const [clicked, setClicked] = useState(false);
+  const [employeesPets, setEmployeesPets] = useState([]);
 
   function handleOnClick() {
     setClicked(!clicked);
+    makePetsFetchRequest();
   }
 
-  function getEmployeesPets() {
-    setEmployeesPets(pets.filter((pet) => pet.employeeId === employee.id));
+  function makePetsFetchRequest() {
+    fetch(
+      `https://vet-resource-api-9-2.herokuapp.com/api/pets?employeeId=${employee.id}`
+    )
+      .then((response) => response.json())
+      .then((pets) => {
+        setEmployeesPets([...pets]);
+      });
   }
-
-  useEffect(() => {
-    getEmployeesPets();
-  }, []);
 
   return (
     <article className="employee">
