@@ -1,6 +1,6 @@
 import PetList from "./PetList";
 import "./Employee.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 export const Employee = ({employee}) => {
